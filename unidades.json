@@ -1,0 +1,162 @@
+[
+  {
+    "nome": "USF Centro de Saúde III (UBS Angari)",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Centro / Angari",
+    "endereco": "Av. Carmela Dutra, S/N - Centro, Juazeiro - BA, CEP 48903-530",
+    "contato": "(74) 3611-4600",
+    "horario": "Segunda a sexta: 7h30 às 12h e 13h30 às 17h",
+    "servicos": [
+      {
+        "categoria": "Consultas e acompanhamento",
+        "descricao": "Consultas de saúde da família e acompanhamento dos pacientes.",
+        "icone": "🩺"
+      },
+      {
+        "categoria": "Enfermagem",
+        "descricao": "Atendimentos e procedimentos de enfermagem.",
+        "icone": "💉"
+      },
+      {
+        "categoria": "Vacinação",
+        "descricao": "Imunização conforme o calendário de vacinação.",
+        "icone": "💊"
+      },
+      {
+        "categoria": "Saúde da mulher",
+        "descricao": "Pré-natal e exames preventivos.",
+        "icone": "💗"
+      }
+    ],
+    "mapa": "https://maps.app.goo.gl/Zw57esERjEVFweME9",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402510197"
+  },
+  {
+    "nome": "Hospital Regional de Juazeiro (HRJ)",
+    "categoria": "Hospital",
+    "municipio": "Juazeiro",
+    "bairro": "Santo Antônio",
+    "endereco": "Travessa do Hospital, S/N - Santo Antônio, Juazeiro - BA",
+    "contato": "(74) 2102-2850",
+    "horario": "Todos os dias, atendimento 24 horas",
+    "servicos": [
+      {
+        "categoria": "Urgência e emergência",
+        "descricao": "Atendimento de situações que necessitam de assistência hospitalar.",
+        "icone": "🚑"
+      },
+      {
+        "categoria": "Alta complexidade",
+        "descricao": "Atendimentos especializados de maior complexidade.",
+        "icone": "🏥"
+      },
+      {
+        "categoria": "Especialidades médicas",
+        "descricao": "Atendimento ambulatorial em especialidades.",
+        "icone": "🩺"
+      },
+      {
+        "categoria": "Internação",
+        "descricao": "Assistência hospitalar durante o período de internação.",
+        "icone": "🛏️"
+      },
+      {
+        "categoria": "Apoio assistencial",
+        "descricao": "Serviços de suporte ao atendimento hospitalar.",
+        "icone": "➕"
+      }
+    ],
+    "mapa": "https://maps.app.goo.gl/itcXoNsnurXmXEsdA",
+    "fonte": "http://www.saude.ba.gov.br/hospital/hospital-regional-de-juazeiro/"
+  },
+  {
+    "nome": "UPA Dr. João Oliveira",
+    "categoria": "UPA",
+    "municipio": "Juazeiro",
+    "bairro": "Castelo Branco",
+    "endereco": "Rodovia Lomanto Júnior, KM 4 - Castelo Branco, Juazeiro - BA, CEP 48906-570",
+    "contato": "(74) 3613-4288 | diretoria.upa@juazeiro.ba.gov.br",
+    "horario": "Todos os dias, atendimento 24 horas",
+    "servicos": [
+      {
+        "categoria": "Urgência e emergência",
+        "descricao": "Atendimento de casos de urgência e emergência.",
+        "icone": "🚑"
+      },
+      {
+        "categoria": "Classificação de risco",
+        "descricao": "Avaliação inicial para identificar a prioridade do atendimento.",
+        "icone": "📋"
+      },
+      {
+        "categoria": "Estabilização de pacientes",
+        "descricao": "Cuidados iniciais para estabilização de pacientes graves.",
+        "icone": "🏥"
+      }
+    ],
+    "mapa": "https://maps.app.goo.gl/eUdRtt18St3VRvyG8",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918407094647"
+  },
+  {
+    "nome": "USF Alto do Alencar",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Alto do Alencar",
+    "endereco": "Av. Américo Tanury, 72-122 - Alto do Alencar, Juazeiro - BA",
+    "contato": "ubs.csu@juazeiro.ba.gov.br",
+    "horario": "Segunda a sexta: 8h às 18h",
+    "servicos": [
+      {
+        "categoria": "Consultas básicas",
+        "descricao": "Atendimentos médicos de atenção básica.",
+        "icone": "🩺"
+      },
+      {
+        "categoria": "Saúde bucal",
+        "descricao": "Atendimentos odontológicos.",
+        "icone": "🦷"
+      },
+      {
+        "categoria": "Exames preventivos",
+        "descricao": "Ações de prevenção e acompanhamento.",
+        "icone": "🔬"
+      },
+      {
+        "categoria": "Vacinação",
+        "descricao": "Imunização conforme o calendário de vacinação.",
+        "icone": "💉"
+      }
+    ],
+    "mapa": "https://share.google/1ktrLnhMKsxY8Q3bk",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402770873"
+  },
+  {
+    "nome": "UBS Jardim Primavera",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Jardim Primavera",
+    "endereco": "Avenida Mandacaru, S/N - Jardim Primavera, Juazeiro - BA, CEP 48908-524",
+    "contato": "(74) 3618-3016 | ubs.jardimprimavera@juazeiro.ba.gov.br",
+    "horario": "Segunda a sexta: 7h30 às 12h e 13h30 às 17h",
+    "servicos": [
+      {
+        "categoria": "Atenção básica",
+        "descricao": "Acompanhamento e cuidados básicos de saúde.",
+        "icone": "🩺"
+      },
+      {
+        "categoria": "Consultas médicas",
+        "descricao": "Atendimentos médicos na unidade.",
+        "icone": "👩‍⚕️"
+      },
+      {
+        "categoria": "Vacinação",
+        "descricao": "Imunização conforme o calendário de vacinação.",
+        "icone": "💉"
+      }
+    ],
+    "mapa": "https://share.google/EDPlmPLSvJX7GLX8e",
+    "fonte": "https://www.meupostinho.com.br/brasil/nordeste/ba/bahia/2918407-juazeiro/2770873-usf-csu-i"
+  }
+]

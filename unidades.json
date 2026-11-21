@@ -13,7 +13,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": null,
@@ -59,27 +59,27 @@
       {
         "categoria": "Atendimento domiciliar",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🏠"
+        "icone": "home"
       },
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": null,
@@ -105,7 +105,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": null,
@@ -130,12 +130,12 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": null,
@@ -161,22 +161,22 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviços de atenção básica registrados no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES; confirme os procedimentos disponíveis diretamente com a unidade.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": -9.412316,
@@ -205,27 +205,27 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço de atenção primária cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Posto de coleta de materiais biológicos",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🧪"
+        "icone": "science"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": -9.435835085776638,
@@ -254,27 +254,27 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Posto de coleta de materiais biológicos",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🧪"
+        "icone": "science"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": -9.440891,
@@ -303,22 +303,22 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": -9.454853,
@@ -368,7 +368,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": -9.323981,
@@ -395,7 +395,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": -9.472363,
@@ -422,7 +422,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": -9.42137,
@@ -449,7 +449,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": -9.45111,
@@ -476,7 +476,7 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       }
     ],
     "latitude": -9.43428,
@@ -523,22 +523,22 @@
       {
         "categoria": "Atenção Primária",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Pré-natal e parto",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🤰"
+        "icone": "pregnant_woman"
       },
       {
         "categoria": "Atenção ao paciente com tuberculose",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "➕"
+        "icone": "add"
       },
       {
         "categoria": "Telessaúde",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "💻"
+        "icone": "computer"
       }
     ],
     "latitude": -9.416076,
@@ -567,7 +567,7 @@
       {
         "categoria": "Urgência pediátrica",
         "descricao": "Atendimento pediátrico de urgência e emergência; confirme fluxo e faixa etária diretamente com a unidade.",
-        "icone": "🧒"
+        "icone": "child_care"
       }
     ],
     "latitude": -9.429349,
@@ -596,27 +596,27 @@
       {
         "categoria": "Urgência e emergência",
         "descricao": "Atendimento de casos de urgência e emergência.",
-        "icone": "🚑"
+        "icone": "ambulance"
       },
       {
         "categoria": "Diagnóstico por imagem",
         "descricao": "Serviços de imagem cadastrados, incluindo radiologia e tomografia; confirme a oferta atual antes de se deslocar.",
-        "icone": "🩻"
+        "icone": "radiology"
       },
       {
         "categoria": "Exames laboratoriais",
         "descricao": "Serviço de laboratório clínico cadastrado no CNES.",
-        "icone": "🧪"
+        "icone": "science"
       },
       {
         "categoria": "Estabilização de pacientes",
         "descricao": "Estrutura para atendimento e estabilização de pacientes graves.",
-        "icone": "🏥"
+        "icone": "local_hospital"
       },
       {
         "categoria": "Saúde do trabalhador",
         "descricao": "Serviço cadastrado no CNES.",
-        "icone": "🦺"
+        "icone": "health_and_safety"
       }
     ],
     "latitude": -9.437677,
@@ -645,7 +645,7 @@
       {
         "categoria": "Maternidade e atenção materno-infantil",
         "descricao": "Serviços hospitalares materno-infantis; confirmar serviços, portas de entrada e regulação diretamente com a unidade.",
-        "icone": "🤱"
+        "icone": "breastfeeding"
       }
     ],
     "latitude": -9.41767,
@@ -674,27 +674,27 @@
       {
         "categoria": "Alta complexidade",
         "descricao": "Atendimento de alta complexidade.",
-        "icone": "🏥"
+        "icone": "local_hospital"
       },
       {
         "categoria": "Diagnóstico e terapia",
         "descricao": "Serviços de diagnose e terapia.",
-        "icone": "🩻"
+        "icone": "radiology"
       },
       {
         "categoria": "Ambulatório de especialidades",
         "descricao": "Atendimento ambulatorial eletivo em especialidades.",
-        "icone": "🩺"
+        "icone": "stethoscope"
       },
       {
         "categoria": "Urgência",
         "descricao": "Pronto atendimento para urgências.",
-        "icone": "🚑"
+        "icone": "ambulance"
       },
       {
         "categoria": "Internação e apoio assistencial",
         "descricao": "Internação e serviços de apoio assistencial, inclusive internação domiciliar.",
-        "icone": "🛏️"
+        "icone": "bed"
       }
     ],
     "latitude": -9.414036858414894,
@@ -724,7 +724,7 @@
       {
         "categoria": "Ortopedia e traumatologia",
         "descricao": "Hospital especializado; confirme atendimento SUS, encaminhamento e serviços disponíveis.",
-        "icone": "🦴"
+        "icone": "orthopedics"
       }
     ],
     "latitude": -9.422289,
@@ -753,7 +753,7 @@
       {
         "categoria": "Atendimento hospitalar",
         "descricao": "Estabelecimento hospitalar cadastrado no CNES; confirme quais serviços são ofertados pelo SUS e mediante regulação.",
-        "icone": "🏥"
+        "icone": "local_hospital"
       }
     ],
     "latitude": -9.4110786,

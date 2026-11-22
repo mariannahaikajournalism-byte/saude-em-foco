@@ -657,3 +657,25 @@ dl.sf-creditos, .sf-tech dl { margin: 0; padding: 0; }
     .sf-line-list li { padding: .65rem .7rem; grid-template-columns: 5.2rem minmax(0, 1fr); gap: .48rem; }
     .sf-line-number { font-size: .78rem; }
 }
+
+
+/* Indicador estimado de funcionamento — baseado no horário cadastrado. */
+.sf-opening-status {
+    align-items: flex-start;
+    padding: .28rem .48rem;
+    margin: .28rem 0 !important;
+    border-radius: .5rem;
+    font-weight: 740;
+}
+.sf-opening-status > span:last-child { display: flex; flex-direction: column; gap: .08rem; }
+.sf-opening-status small {
+    font-size: .72rem;
+    line-height: 1.3;
+    font-weight: 450;
+    color: #465c61;
+}
+.sf-opening-status .sf-icon { margin-top: .02rem; }
+.sf-status-open { background: #e7f6ec; color: #17613a !important; }
+.sf-status-closed { background: #fff1e9; color: #8b3d1e !important; }
+.sf-status-continuous { background: #e9f2fb; color: #20547b !important; }
+.sf-status-unknown { background: #f0f2f2; color: #46545a !important; }

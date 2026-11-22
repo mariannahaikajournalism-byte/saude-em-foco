@@ -1,11 +1,14 @@
 import html
 import json
+import math
 import re
 import unicodedata
 import urllib.error
 import urllib.request
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlencode
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -58,6 +61,82 @@ def obter_coordenadas(unidade):
         return {"latitude": lat, "longitude": lon}
     except (TypeError, ValueError):
         return None
+
+
+def avaliar_funcionamento(horario):
+    """Interpreta horários cadastrados sem alegar confirmação em tempo real."""
+    texto_horario = str(horario or "").strip()
+    normalizado = normalizar_texto(texto_horario)
+
+    if not texto_horario or "nao confirmado" in normalizado or "nao informado" in normalizado:
+        return {
+            "classe": "sf-status-unknown",
+            "rotulo": "Horário não confirmado",
+            "detalhe": "Não há horário suficiente para estimar o funcionamento.",
+        }
+
+    if "24h" in normalizado or "24 h" in normalizado:
+        return {
+            "classe": "sf-status-continuous",
+            "rotulo": "Atendimento 24h informado",
+            "detalhe": "Informação cadastral; confirme diretamente com a unidade.",
+        }
+
+    if "atendimento continuo" in normalizado or "plantao" in normalizado:
+        return {
+            "classe": "sf-status-continuous",
+            "rotulo": "Atendimento contínuo informado",
+            "detalhe": "Informação cadastral; confirme diretamente com a unidade.",
+        }
+
+    # Os horários cadastrados em formato interpretável seguem segunda a sexta.
+    dias_validos = "segunda a sexta" in normalizado or "segunda a sexta feira" in normalizado
+    if not dias_validos:
+        return {
+            "classe": "sf-status-unknown",
+            "rotulo": "Consulte o horário cadastrado",
+            "detalhe": "O formato do horário não permite estimar o funcionamento agora.",
+        }
+
+    padrao = re.compile(
+        r"(\d{1,2})\s*h\s*(\d{2})?\s*às\s*(\d{1,2})\s*h\s*(\d{2})?"
+    )
+    intervalos = []
+    for match in padrao.finditer(texto_horario):
+        hora_inicio = int(match.group(1))
+        minuto_inicio = int(match.group(2) or 0)
+        hora_fim = int(match.group(3))
+        minuto_fim = int(match.group(4) or 0)
+        if hora_inicio <= 23 and hora_fim <= 24 and minuto_inicio < 60 and minuto_fim < 60:
+            inicio = hora_inicio * 60 + minuto_inicio
+            fim = hora_fim * 60 + minuto_fim
+            if inicio < fim:
+                intervalos.append((inicio, fim))
+
+    if not intervalos:
+        return {
+            "classe": "sf-status-unknown",
+            "rotulo": "Consulte o horário cadastrado",
+            "detalhe": "O horário precisa ser conferido diretamente com a unidade.",
+        }
+
+    agora = datetime.now(ZoneInfo("America/Bahia"))
+    minuto_atual = agora.hour * 60 + agora.minute
+    dia_util = agora.weekday() < 5
+    aberto = dia_util and any(inicio <= minuto_atual < fim for inicio, fim in intervalos)
+
+    if aberto:
+        return {
+            "classe": "sf-status-open",
+            "rotulo": "Aberto agora, conforme horário cadastrado",
+            "detalhe": "Estimativa baseada no horário informado; não confirma disponibilidade de atendimento.",
+        }
+
+    return {
+        "classe": "sf-status-closed",
+        "rotulo": "Fechado agora, conforme horário cadastrado",
+        "detalhe": "Estimativa baseada no horário informado; feriados e alterações podem não estar contemplados.",
+    }
 
 
 def link_valido(url):
@@ -156,6 +235,247 @@ icones_servicos = {
     "ambulance", "radiology", "local_hospital", "health_and_safety", "breastfeeding", "bed", "orthopedics",
 }
 
+def distancia_metros(lat1, lon1, lat2, lon2):
+    """Calcula a distância aproximada em linha reta entre duas coordenadas."""
+    raio_terra = 6_371_000
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    delta_phi = math.radians(lat2 - lat1)
+    delta_lambda = math.radians(lon2 - lon1)
+    a = (
+        math.sin(delta_phi / 2) ** 2
+        + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda / 2) ** 2
+    )
+    return 2 * raio_terra * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def consultar_pontos_onibus(unidades_consulta, raio=500):
+    """Consulta pontos de ônibus no OpenStreetMap via Overpass API.
+
+    Recebe somente unidades cujas coordenadas foram marcadas como confirmadas
+    pela equipe. O cache reduz consultas repetidas ao serviço público.
+    """
+    if not unidades_consulta:
+        return {"pontos": [], "erro": None}
+
+    consultas = []
+    for _, lat, lon in unidades_consulta:
+        lat, lon = float(lat), float(lon)
+        consultas.extend([
+            f'node(around:{raio},{lat},{lon})["highway"="bus_stop"];',
+            f'node(around:{raio},{lat},{lon})["public_transport"="platform"]["bus"!="no"];',
+            f'way(around:{raio},{lat},{lon})["highway"="bus_stop"];',
+            f'way(around:{raio},{lat},{lon})["public_transport"="platform"]["bus"!="no"];',
+        ])
+    consulta = "[out:json][timeout:45];(" + "".join(consultas) + ");out center tags;"
+    requisicao = urllib.request.Request(
+        "https://overpass-api.de/api/interpreter",
+        data=urlencode({"data": consulta}).encode("utf-8"),
+        headers={
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "User-Agent": "SaudeEmFoco-Juazeiro/1.0 (projeto academico)",
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(requisicao, timeout=55) as resposta:
+            dados_osm = json.loads(resposta.read().decode("utf-8"))
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError) as erro:
+        return {"pontos": [], "erro": str(erro)}
+
+    pontos_unicos = {}
+    for elemento in dados_osm.get("elements", []):
+        tags = elemento.get("tags", {})
+        lat = elemento.get("lat")
+        lon = elemento.get("lon")
+        if lat is None or lon is None:
+            centro = elemento.get("center", {})
+            lat, lon = centro.get("lat"), centro.get("lon")
+        if lat is None or lon is None:
+            continue
+        identificador = f"{elemento.get('type')}:{elemento.get('id')}"
+        pontos_unicos[identificador] = {
+            "id": identificador,
+            "latitude": float(lat),
+            "longitude": float(lon),
+            "nome": tags.get("name") or tags.get("ref") or "Ponto de ônibus sem nome no cadastro",
+            "operador": tags.get("operator", ""),
+            "tipo": tags.get("highway") or tags.get("public_transport") or "parada",
+        }
+
+    pontos_atribuidos = []
+    for ponto in pontos_unicos.values():
+        proximidade = []
+        for nome_unidade, lat_unidade, lon_unidade in unidades_consulta:
+            distancia = distancia_metros(
+                ponto["latitude"], ponto["longitude"], float(lat_unidade), float(lon_unidade)
+            )
+            if distancia <= raio:
+                proximidade.append((distancia, nome_unidade))
+        if proximidade:
+            distancia, unidade_mais_proxima = min(proximidade, key=lambda item: item[0])
+            ponto["unidade_proxima"] = unidade_mais_proxima
+            ponto["distancia_metros"] = round(distancia)
+            ponto["osm_url"] = f"https://www.openstreetmap.org/{ponto['id'].replace(':', '/') }"
+            pontos_atribuidos.append(ponto)
+
+    pontos_atribuidos.sort(key=lambda item: (item["unidade_proxima"], item["distancia_metros"]))
+    return {"pontos": pontos_atribuidos, "erro": None}
+
+
+
+def geocodificar_endereco(endereco, chave_api):
+    """Converte um endereço informado em coordenadas usando o Pelias da HeiGIT."""
+    consulta = f"{endereco}, Juazeiro, Bahia, Brasil"
+    parametros = urlencode({
+        "text": consulta,
+        "boundary.country": "BR",
+        "size": 1,
+        "layers": "address,venue,street,locality",
+    })
+    url = f"https://api.heigit.org/pelias/v1/search?{parametros}"
+    requisicao = urllib.request.Request(
+        url,
+        headers={
+            "Authorization": chave_api,
+            "Accept": "application/json",
+            "User-Agent": "SaudeEmFoco-Juazeiro/1.0 (projeto academico)",
+        },
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(requisicao, timeout=25) as resposta:
+            dados_geograficos = json.loads(resposta.read().decode("utf-8"))
+    except urllib.error.HTTPError as erro:
+        if erro.code in (401, 403):
+            raise RuntimeError("A chave da HeiGIT não foi aceita ou não tem acesso à geocodificação. Confira a configuração nos Secrets.") from None
+        if erro.code == 429:
+            raise RuntimeError("O limite de consultas da HeiGIT foi atingido. Aguarde alguns minutos e tente novamente.") from None
+        if erro.code >= 500:
+            raise RuntimeError("O serviço de localização da HeiGIT está temporariamente instável. Tente novamente mais tarde.") from None
+        raise RuntimeError(f"O serviço de localização retornou o erro HTTP {erro.code}.") from None
+    except (urllib.error.URLError, TimeoutError):
+        raise RuntimeError("Não foi possível conectar ao serviço de localização. Verifique a internet e tente novamente.") from None
+    except json.JSONDecodeError:
+        raise RuntimeError("O serviço de localização retornou uma resposta que não pôde ser interpretada.") from None
+
+    resultados = dados_geograficos.get("features", [])
+    if not resultados:
+        return None
+
+    geometria = resultados[0].get("geometry", {})
+    coordenadas = geometria.get("coordinates", [])
+    if len(coordenadas) < 2:
+        return None
+
+    propriedades = resultados[0].get("properties", {})
+    return {
+        "longitude": float(coordenadas[0]),
+        "latitude": float(coordenadas[1]),
+        "rotulo": propriedades.get("label") or consulta,
+    }
+
+
+def calcular_rota_ors(origem, destino, perfil, chave_api):
+    """Calcula uma rota e retorna geometria GeoJSON, distância e duração."""
+    url = f"https://api.heigit.org/openrouteservice/v2/directions/{perfil}/geojson"
+    payload = {
+        "coordinates": [
+            [float(origem["longitude"]), float(origem["latitude"])],
+            [float(destino["longitude"]), float(destino["latitude"])],
+        ],
+        "instructions": False,
+    }
+    requisicao = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": chave_api,
+            "Content-Type": "application/json",
+            "Accept": "application/geo+json",
+            "User-Agent": "SaudeEmFoco-Juazeiro/1.0 (projeto academico)",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(requisicao, timeout=40) as resposta:
+            dados_rota = json.loads(resposta.read().decode("utf-8"))
+    except urllib.error.HTTPError as erro:
+        if erro.code in (401, 403):
+            raise RuntimeError("A chave da HeiGIT não foi aceita ou não tem acesso ao serviço de rotas. Confira os Secrets e as permissões da chave.") from None
+        if erro.code == 404:
+            raise RuntimeError("O serviço de rotas não foi encontrado. Verifique a disponibilidade da API da HeiGIT e tente novamente.") from None
+        if erro.code == 429:
+            raise RuntimeError("O limite de consultas de rotas foi atingido. Aguarde alguns minutos e tente novamente.") from None
+        if erro.code >= 500:
+            raise RuntimeError("O serviço de rotas da HeiGIT está temporariamente instável. Tente novamente mais tarde.") from None
+        raise RuntimeError(f"A API de rotas retornou o erro HTTP {erro.code}. Confira o endereço de origem e tente novamente.") from None
+    except (urllib.error.URLError, TimeoutError):
+        raise RuntimeError("Não foi possível conectar ao serviço de rotas. Verifique a internet e tente novamente.") from None
+    except json.JSONDecodeError:
+        raise RuntimeError("O serviço de rotas retornou uma resposta que não pôde ser interpretada.") from None
+
+    funcionalidades = dados_rota.get("features", [])
+    if not funcionalidades:
+        raise RuntimeError("Não foi possível encontrar um trajeto entre a origem e a unidade selecionada.")
+
+    primeira = funcionalidades[0]
+    geometria = primeira.get("geometry", {})
+    coordenadas_rota = geometria.get("coordinates", [])
+    resumo = primeira.get("properties", {}).get("summary", {})
+    if len(coordenadas_rota) < 2 or not resumo:
+        raise RuntimeError("A API não retornou informações suficientes para exibir este trajeto.")
+
+    return {
+        "coordenadas": coordenadas_rota,
+        "distancia_metros": float(resumo.get("distance", 0)),
+        "duracao_segundos": float(resumo.get("duration", 0)),
+    }
+
+
+def exibir_mapa_rota(origem, destino, coordenadas_rota):
+    """Exibe o trajeto calculado no Leaflet, sem alterar o mapa principal do guia."""
+    dados = json.dumps({
+        "origem": origem,
+        "destino": destino,
+        "rota": coordenadas_rota,
+    }, ensure_ascii=False).replace("</", "<\\/")
+    html_rota = """<!DOCTYPE html><html><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+      html,body{margin:0;padding:0;background:transparent}
+      #mapa-rota{height:500px;width:100%;border-radius:14px;background:#e8eeeb;z-index:1}
+      .leaflet-popup-content-wrapper{border-radius:12px;color:#18332e}
+      .leaflet-control-zoom{border:0!important;border-radius:10px!important;overflow:hidden;box-shadow:0 2px 12px #0c383a36}
+    </style></head><body>
+    <div id="mapa-rota" role="region" aria-label="Trajeto entre a origem informada e a unidade de saúde"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
+      const dados=__DADOS__;
+      const mapa=L.map('mapa-rota',{zoomControl:false});
+      L.control.zoom({position:'bottomright'}).addTo(mapa);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        attribution:'&copy; OpenStreetMap contributors',maxZoom:19
+      }).addTo(mapa);
+      const escaparHtml=(valor)=>String(valor).replace(/[&<>\"']/g,caractere=>({
+        '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'
+      }[caractere]));
+      const linha=L.geoJSON({type:'Feature',properties:{},geometry:{
+        type:'LineString',coordinates:dados.rota
+      }},{style:{color:'#087d74',weight:6,opacity:.88,lineCap:'round',lineJoin:'round'}}).addTo(mapa);
+      const inicio=L.circleMarker([dados.origem.latitude,dados.origem.longitude],{
+        radius:8,color:'#ffffff',weight:3,fillColor:'#1769aa',fillOpacity:1
+      }).addTo(mapa).bindPopup('<strong>Origem</strong><br>'+escaparHtml(dados.origem.rotulo));
+      const fim=L.circleMarker([dados.destino.latitude,dados.destino.longitude],{
+        radius:9,color:'#ffffff',weight:3,fillColor:'#d97706',fillOpacity:1
+      }).addTo(mapa).bindPopup('<strong>Destino</strong><br>'+escaparHtml(dados.destino.nome));
+      const limites=L.featureGroup([linha,inicio,fim]).getBounds();
+      mapa.fitBounds(limites,{padding:[30,30]});
+    </script></body></html>""".replace("__DADOS__", dados)
+    components.html(html_rota, height=520, scrolling=False)
+
+
 def exibir_mapa(marcadores):
     dados_mapa = json.dumps(marcadores, ensure_ascii=False).replace("</", "<\\/")
     html_mapa = """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -209,6 +529,8 @@ def cartao_unidade(unidade):
     if not isinstance(servicos, list):
         servicos = []
 
+    status_funcionamento = avaliar_funcionamento(horario)
+
     def texto(valor):
         return html.escape(str(valor))
 
@@ -259,7 +581,10 @@ def cartao_unidade(unidade):
         f'<span class="sf-badge">{texto(categoria)}</span></div>'
         f'<p>{icone_material("location_on")}<span>{texto(local)}</span></p>'
         f'<p>{icone_material("call")}<span>{texto(contato)}</span></p>'
-        f'<p>{icone_material("medical_services")}<span><strong>Serviços:</strong> {texto(resumo)}</span></p>'
+        + f'<p class="sf-opening-status {status_funcionamento["classe"]}">'
+        + f'{icone_material("schedule")}<span>{texto(status_funcionamento["rotulo"])}'
+        + f'<small>{texto(status_funcionamento["detalhe"])}</small></span></p>'
+        + f'<p>{icone_material("medical_services")}<span><strong>Serviços:</strong> {texto(resumo)}</span></p>'
         '</div></div>'
         '<div class="sf-card-actions">'
         f'<details class="sf-details"><summary class="sf-action">{icone_material("info")}Ver detalhes</summary>'
@@ -472,7 +797,7 @@ elif pagina == "Mobilidade":
     with st.container(key="sf_page_intro"):
         cabecalho_pagina(
             "Mobilidade e transporte público",
-            "Consulte linhas, itinerários e pontos de parada do transporte coletivo de Juazeiro.",
+            "Identifique pontos de ônibus mapeados nas proximidades das unidades de saúde de Juazeiro.",
             "directions_bus",
         )
         st.link_button(
@@ -491,6 +816,129 @@ elif pagina == "Mobilidade":
         ("204", "Itaberaba / Circular"),
         ("207", "Rua São Francisco / Humberto Martins / Piranga"),
     ]
+    unidades_com_coordenadas_confirmadas = []
+    for unidade in unidades:
+        coordenadas = obter_coordenadas(unidade)
+        if coordenadas and unidade.get("localizacao_confirmada") is True:
+            unidades_com_coordenadas_confirmadas.append((
+                str(unidade.get("nome", "Unidade sem nome")),
+                coordenadas["latitude"],
+                coordenadas["longitude"],
+            ))
+
+    # Rotas: somente unidades com coordenadas cadastradas e confirmadas pela equipe.
+    destinos_rota = {
+        nome: {"latitude": lat, "longitude": lon}
+        for nome, lat, lon in unidades_com_coordenadas_confirmadas
+    }
+
+    st.html(
+        '<h2 class="sf-section-title">Trace sua rota até uma unidade de saúde</h2>'
+        '<p>Informe de onde você vai sair, escolha o estabelecimento e veja uma estimativa do trajeto no mapa.</p>'
+    )
+    if not destinos_rota:
+        st.info("Ainda não há unidades com localização confirmada disponíveis para o cálculo de rotas.")
+    else:
+        with st.form("formulario_rota_saude_foco"):
+            coluna_origem, coluna_destino = st.columns([1, 1], gap="medium")
+            with coluna_origem:
+                origem_digitada = st.text_input(
+                    "Ponto de partida",
+                    placeholder="Ex.: Praça da Bandeira, Centro",
+                    help="Informe um endereço ou ponto de referência em Juazeiro (BA).",
+                )
+            with coluna_destino:
+                destino_escolhido = st.selectbox(
+                    "Unidade de saúde de destino",
+                    options=list(destinos_rota.keys()),
+                    help="A lista inclui apenas unidades com coordenadas confirmadas pela equipe.",
+                )
+            modo_deslocamento = st.radio(
+                "Como você pretende chegar?",
+                options=["A pé", "Carro"],
+                horizontal=True,
+            )
+            calcular = st.form_submit_button(
+                "Calcular rota", type="primary", icon=":material/route:", width="stretch"
+            )
+
+        if calcular:
+            st.session_state.pop("rota_saude_foco", None)
+            if not origem_digitada.strip():
+                st.warning("Informe o ponto de partida para calcular o trajeto.")
+            else:
+                try:
+                    chave_ors = str(st.secrets.get("openrouteservice_api_key", "")).strip()
+                except Exception:
+                    chave_ors = ""
+
+                if not chave_ors:
+                    st.error(
+                        "A chave da HeiGIT não foi encontrada. Configure `openrouteservice_api_key` "
+                        "nos Secrets locais e no Streamlit Cloud."
+                    )
+                else:
+                    perfil = "foot-walking" if modo_deslocamento == "A pé" else "driving-car"
+                    destino_coordenadas = destinos_rota[destino_escolhido]
+                    with st.spinner("Localizando o endereço e calculando o trajeto..."):
+                        try:
+                            origem_geografica = geocodificar_endereco(origem_digitada.strip(), chave_ors)
+                            if not origem_geografica:
+                                st.warning(
+                                    "Não encontramos esse ponto de partida. Tente informar o nome da rua, "
+                                    "o bairro ou um ponto de referência de Juazeiro."
+                                )
+                            else:
+                                dados_trajeto = calcular_rota_ors(
+                                    origem_geografica, destino_coordenadas, perfil, chave_ors
+                                )
+                                st.session_state["rota_saude_foco"] = {
+                                    "origem": origem_geografica,
+                                    "destino": {
+                                        **destino_coordenadas,
+                                        "nome": destino_escolhido,
+                                    },
+                                    "rota": dados_trajeto["coordenadas"],
+                                    "distancia_metros": dados_trajeto["distancia_metros"],
+                                    "duracao_segundos": dados_trajeto["duracao_segundos"],
+                                    "modo": modo_deslocamento,
+                                }
+                        except RuntimeError as erro:
+                            st.error(str(erro))
+                        except Exception:
+                            st.error("Ocorreu um erro inesperado ao calcular a rota. Tente novamente.")
+
+        rota_calculada = st.session_state.get("rota_saude_foco")
+        if rota_calculada:
+            distancia = rota_calculada["distancia_metros"]
+            duracao = rota_calculada["duracao_segundos"]
+            distancia_formatada = (
+                f"{distancia:.0f} m" if distancia < 1000 else f"{distancia / 1000:.1f} km"
+            )
+            minutos = round(duracao / 60)
+            if minutos < 60:
+                duracao_formatada = f"{minutos} min"
+            else:
+                horas, minutos_restantes = divmod(minutos, 60)
+                duracao_formatada = f"{horas} h" + (f" {minutos_restantes} min" if minutos_restantes else "")
+
+            st.success(
+                f"Trajeto encontrado: {rota_calculada['origem']['rotulo']} → {rota_calculada['destino']['nome']}"
+            )
+            metricas_rota = st.columns(3)
+            metricas_rota[0].metric("Distância estimada", distancia_formatada)
+            metricas_rota[1].metric("Tempo estimado", duracao_formatada)
+            metricas_rota[2].metric("Deslocamento", rota_calculada["modo"])
+            exibir_mapa_rota(
+                rota_calculada["origem"],
+                rota_calculada["destino"],
+                rota_calculada["rota"],
+            )
+            st.caption(
+                "Estimativa calculada pela OpenRouteService/HeiGIT. O tempo não considera "
+                "condições de trânsito em tempo real. A origem é interpretada no contexto de Juazeiro (BA)."
+            )
+
     with st.container(key="sf_mobility"):
         principal, apoio = st.columns([7, 4], gap="large")
         with principal:
@@ -510,11 +958,60 @@ elif pagina == "Mobilidade":
                 '<aside class="sf-aside">'
                 f'<h2>{icone_material("schedule")}Consulta de itinerários</h2>'
                 '<p>As linhas e os horários podem sofrer alterações. A consulta atualizada deve ser feita diretamente na plataforma de transporte.</p>'
-                f'<h2>{icone_material("location_on")}Integração com as unidades de saúde</h2>'
-                '<p>Uma linha só será associada a uma unidade quando houver confirmação de pontos de parada próximos ao endereço. '
-                'O guia ainda não indica linhas específicas para cada estabelecimento.</p>'
+                f'<h2>{icone_material("location_on")}Pontos de ônibus próximos às unidades</h2>'
+                '<p>O guia consulta pontos de parada cadastrados no OpenStreetMap em um raio de até 500 metros das unidades com coordenadas confirmadas pela equipe.</p>'
+                '<p>A proximidade de um ponto não comprova que uma linha específica atende à unidade. A associação entre ponto e linha depende de confirmação do itinerário.</p>'
                 '</aside>'
             )
+
+    st.html('<h2 class="sf-section-title">Acesso ao transporte nas proximidades</h2>')
+    st.write(
+        "Os dados abaixo são consultados na base colaborativa do OpenStreetMap por meio da Overpass API. "
+        "A distância é aproximada, em linha reta, entre o ponto mapeado e a coordenada cadastrada da unidade."
+    )
+    if not unidades_com_coordenadas_confirmadas:
+        st.info("Ainda não há unidades com coordenadas confirmadas disponíveis para esta consulta.")
+    else:
+        with st.spinner("Consultando pontos de ônibus mapeados em Juazeiro..."):
+            resultado_mobilidade = consultar_pontos_onibus(tuple(unidades_com_coordenadas_confirmadas), 500)
+
+        if resultado_mobilidade["erro"]:
+            st.warning(
+                "Não foi possível consultar o serviço do OpenStreetMap neste momento. "
+                "Isso pode ocorrer por instabilidade ou limite temporário de consultas. Tente novamente mais tarde."
+            )
+        else:
+            pontos = resultado_mobilidade["pontos"]
+            unidades_com_pontos = {}
+            for ponto in pontos:
+                unidades_com_pontos.setdefault(ponto["unidade_proxima"], []).append(ponto)
+
+            st.html(
+                '<div class="sf-metrics">'
+                f'<div class="sf-metric">{icone_material("domain")}<div><strong>{len(unidades_com_coordenadas_confirmadas)}</strong><span>Unidades analisadas</span></div></div>'
+                f'<div class="sf-metric">{icone_material("directions_bus")}<div><strong>{len(pontos)}</strong><span>Pontos encontrados</span></div></div>'
+                f'<div class="sf-metric">{icone_material("location_on")}<div><strong>{len(unidades_com_pontos)}</strong><span>Unidades com ponto próximo</span></div></div>'
+                '</div>'
+            )
+            if not pontos:
+                st.info("A consulta não encontrou pontos de ônibus mapeados no raio de 500 metros das unidades analisadas. Isso não significa necessariamente ausência de transporte; o mapa colaborativo pode estar incompleto.")
+            else:
+                for nome_unidade, _, _ in unidades_com_coordenadas_confirmadas:
+                    pontos_unidade = unidades_com_pontos.get(nome_unidade, [])
+                    with st.expander(f"{nome_unidade} · {len(pontos_unidade)} ponto(s) encontrado(s)", expanded=bool(pontos_unidade)):
+                        if not pontos_unidade:
+                            st.write("Nenhum ponto mapeado foi encontrado no raio de 500 metros desta unidade.")
+                        for ponto in pontos_unidade:
+                            distancia = ponto["distancia_metros"]
+                            distancia_texto = f"{distancia} m" if distancia < 1000 else f"{distancia / 1000:.1f} km"
+                            st.markdown(
+                                f"- **{html.escape(ponto['nome'])}** — aproximadamente {distancia_texto} "
+                                f"([ver no OpenStreetMap]({ponto['osm_url']}))"
+                            )
+                            if ponto.get("operador"):
+                                st.caption(f"Operador informado no mapa: {ponto['operador']}")
+
+            st.caption("Fonte: OpenStreetMap contributors, consultado via Overpass API. Os dados são colaborativos, podem estar incompletos ou desatualizados e não substituem a confirmação com a operadora do transporte.")
 
 elif pagina == "Sobre o projeto":
     with st.container(key="sf_page_intro"):
@@ -577,6 +1074,8 @@ elif pagina == "Sobre o projeto":
             ]),
             ("map", "Mapas e integração", [
                 ("Leaflet + OpenStreetMap", "Biblioteca de mapas interativos e base cartográfica utilizada na visualização geográfica."),
+                ("Overpass API", "Interface de consulta aos dados colaborativos do OpenStreetMap para identificar pontos de ônibus próximos às unidades com localização confirmada."),
+                ("OpenRouteService / HeiGIT + Pelias", "Serviços utilizados para localizar o ponto de partida informado e calcular estimativas de trajetos a pé ou de carro até unidades com coordenadas confirmadas."),
                 ("Google Apps Script", "Serviço utilizado para intermediar o envio das avaliações preenchidas na aplicação."),
                 ("Google Sheets", "Planilha utilizada para receber e organizar as respostas da avaliação, conforme a configuração da integração."),
             ]),

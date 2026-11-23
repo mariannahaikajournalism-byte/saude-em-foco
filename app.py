@@ -13,6 +13,11 @@ from zoneinfo import ZoneInfo
 import streamlit as st
 import streamlit.components.v1 as components
 
+try:
+    from streamlit_geolocation import streamlit_geolocation
+except ImportError:
+    streamlit_geolocation = None
+
 st.set_page_config(
     page_title="Saúde em Foco | Juazeiro",
     page_icon=":material/local_hospital:",
@@ -248,8 +253,24 @@ def distancia_metros(lat1, lon1, lat2, lon2):
     return 2 * raio_terra * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
+<<<<<<< HEAD
 @st.cache_data(ttl=3600, show_spinner=False)
 def consultar_pontos_onibus(unidades_consulta, raio=500):
+=======
+def categorizar_faixa_distancia(distancia):
+    """Classifica cada parada em uma única faixa de proximidade."""
+    if distancia <= 300:
+        return "Até 300 m"
+    if distancia <= 500:
+        return "De 301 a 500 m"
+    if distancia <= 1000:
+        return "De 501 m a 1 km"
+    return None
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def consultar_pontos_onibus(unidades_consulta, raio=1000):
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
     """Consulta pontos de ônibus no OpenStreetMap via Overpass API.
 
     Recebe somente unidades cujas coordenadas foram marcadas como confirmadas
@@ -299,7 +320,11 @@ def consultar_pontos_onibus(unidades_consulta, raio=500):
             "id": identificador,
             "latitude": float(lat),
             "longitude": float(lon),
+<<<<<<< HEAD
             "nome": tags.get("name") or tags.get("ref") or "Ponto de ônibus sem nome no cadastro",
+=======
+            "nome": tags.get("name") or tags.get("ref") or "Parada sem identificação nominal",
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
             "operador": tags.get("operator", ""),
             "tipo": tags.get("highway") or tags.get("public_transport") or "parada",
         }
@@ -317,8 +342,15 @@ def consultar_pontos_onibus(unidades_consulta, raio=500):
             distancia, unidade_mais_proxima = min(proximidade, key=lambda item: item[0])
             ponto["unidade_proxima"] = unidade_mais_proxima
             ponto["distancia_metros"] = round(distancia)
+<<<<<<< HEAD
             ponto["osm_url"] = f"https://www.openstreetmap.org/{ponto['id'].replace(':', '/') }"
             pontos_atribuidos.append(ponto)
+=======
+            ponto["faixa_distancia"] = categorizar_faixa_distancia(ponto["distancia_metros"])
+            ponto["osm_url"] = f"https://www.openstreetmap.org/{ponto['id'].replace(':', '/') }"
+            if ponto["faixa_distancia"]:
+                pontos_atribuidos.append(ponto)
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
     pontos_atribuidos.sort(key=lambda item: (item["unidade_proxima"], item["distancia_metros"]))
     return {"pontos": pontos_atribuidos, "erro": None}
@@ -515,6 +547,73 @@ def exibir_mapa(marcadores):
     components.html(html_mapa, height=534, scrolling=False)
 
 
+
+def exibir_mapa_localizacao_usuario():
+    """Mostra a posição atual do usuário no navegador, sem enviar coordenadas ao servidor."""
+    html_localizacao = """<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+      html,body{margin:0;padding:0;font-family:Arial,sans-serif;color:#183b35;background:transparent}
+      .sf-location-wrap{border:1px solid #dce8e3;border-radius:14px;overflow:hidden;background:#fff}
+      .sf-location-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px}
+      .sf-location-toolbar button{border:0;border-radius:9px;background:#176b5e;color:#fff;padding:10px 14px;font-weight:700;cursor:pointer}
+      .sf-location-toolbar button:disabled{opacity:.6;cursor:wait}
+      #sf-location-status{font-size:13px;color:#526760;line-height:1.4;flex:1;min-width:180px}
+      #sf-user-map{height:390px;width:100%;background:#eaf0ed}
+      .sf-user-dot{width:18px;height:18px;border-radius:50%;background:#2878e8;border:3px solid #fff;box-shadow:0 0 0 7px #2878e833,0 2px 8px #0004}
+      .leaflet-popup-content-wrapper{border-radius:10px}
+    </style></head><body>
+    <div class="sf-location-wrap">
+      <div class="sf-location-toolbar">
+        <button id="sf-start-location" type="button">Ativar minha localização</button>
+        <button id="sf-center-location" type="button" disabled>Centralizar</button>
+        <span id="sf-location-status" role="status" aria-live="polite">Autorize o acesso à localização para visualizar sua posição no mapa. A posição não será armazenada pelo Saúde em Foco.</span>
+      </div>
+      <div id="sf-user-map" role="region" aria-label="Mapa com a localização atual do usuário"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
+      const map=L.map('sf-user-map').setView([-9.416,-40.50],13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+      let userMarker=null, accuracyCircle=null, watchId=null, firstFix=true, lastPosition=null;
+      const status=document.getElementById('sf-location-status');
+      const start=document.getElementById('sf-start-location');
+      const center=document.getElementById('sf-center-location');
+      function reportError(error){
+        const messages={1:'Permissão negada. Libere a localização nas configurações do navegador e tente novamente.',2:'Não foi possível determinar sua posição. Verifique o GPS ou a conexão e tente novamente.',3:'A localização demorou para responder. Tente novamente.'};
+        status.textContent=messages[error.code]||'Não foi possível acessar a localização neste momento.';
+        start.disabled=false;
+      }
+      function updatePosition(position){
+        const lat=position.coords.latitude, lon=position.coords.longitude, accuracy=position.coords.accuracy;
+        lastPosition=[lat,lon];
+        const point=[lat,lon];
+        if(!userMarker){
+          userMarker=L.marker(point,{icon:L.divIcon({className:'',html:'<div class="sf-user-dot"></div>',iconSize:[24,24],iconAnchor:[12,12]}),title:'Sua localização'}).addTo(map).bindPopup('Você está aqui');
+          accuracyCircle=L.circle(point,{radius:accuracy,color:'#2878e8',weight:1,fillColor:'#2878e8',fillOpacity:.08}).addTo(map);
+        }else{
+          userMarker.setLatLng(point);
+          accuracyCircle.setLatLng(point).setRadius(accuracy);
+        }
+        if(firstFix){map.setView(point,16);firstFix=false;}
+        status.textContent='Localização atualizada. Precisão aproximada: '+Math.round(accuracy)+' m. A posição é atualizada enquanto esta página permanece aberta.';
+        center.disabled=false;
+        start.disabled=false;
+        start.textContent='Atualizar localização';
+      }
+      start.addEventListener('click',function(){
+        if(!('geolocation' in navigator)){status.textContent='Este navegador não oferece suporte à geolocalização.';return;}
+        if(!window.isSecureContext){status.textContent='A localização exige uma conexão segura (HTTPS). Abra a versão publicada do aplicativo.';return;}
+        start.disabled=true;status.textContent='Solicitando permissão e buscando sua posição…';
+        if(watchId!==null)navigator.geolocation.clearWatch(watchId);
+        firstFix=true;
+        watchId=navigator.geolocation.watchPosition(updatePosition,reportError,{enableHighAccuracy:true,maximumAge:5000,timeout:20000});
+      });
+      center.addEventListener('click',function(){if(lastPosition)map.setView(lastPosition,17);});
+    </script></body></html>"""
+    components.html(html_localizacao, height=485, scrolling=False)
+
+
 def cartao_unidade(unidade):
     nome = str(unidade.get("nome", "Nome não informado"))
     categoria = obter_categoria(unidade)
@@ -668,6 +767,161 @@ if pagina == "Início":
         if corresponde_texto and corresponde_categoria:
             filtradas.append(unidade)
 
+    # Cálculo de rota na própria área de pesquisa, usando a localização autorizada
+    # pelo usuário no navegador. As coordenadas só são enviadas ao servidor quando
+    # a pessoa solicita o cálculo do trajeto.
+    destinos_pesquisa = {
+        str(u.get("nome", "Unidade sem nome")): obter_coordenadas(u)
+        for u in filtradas
+        if obter_coordenadas(u) and u.get("localizacao_confirmada") is True
+    }
+
+    with st.container(key="sf_search_route"):
+        st.html(
+            '<div class="sf-results-heading"><h2>'
+            + icone_material("near_me")
+            + 'Calcule a distância a partir de você</h2></div>'
+            '<p class="sf-muted">Descubra quanto tempo leva para chegar a uma unidade encontrada, '
+            'a pé ou de carro, usando sua localização atual.</p>'
+        )
+        if streamlit_geolocation is None:
+            st.warning(
+                "O recurso de localização ainda não está instalado. Atualize as dependências "
+                "do projeto para habilitar esta função."
+            )
+        elif not destinos_pesquisa:
+            st.info(
+                "Não há unidades com coordenadas confirmadas entre os resultados atuais. "
+                "Amplie a pesquisa ou escolha outra categoria."
+            )
+        else:
+            localizacao_capturada = streamlit_geolocation()
+            if isinstance(localizacao_capturada, dict):
+                try:
+                    latitude_usuario = float(localizacao_capturada.get("latitude"))
+                    longitude_usuario = float(localizacao_capturada.get("longitude"))
+                    if -90 <= latitude_usuario <= 90 and -180 <= longitude_usuario <= 180:
+                        st.session_state["sf_localizacao_para_rota"] = {
+                            "latitude": latitude_usuario,
+                            "longitude": longitude_usuario,
+                            "rotulo": "Minha localização atual",
+                            "precisao": localizacao_capturada.get("accuracy"),
+                        }
+                except (TypeError, ValueError):
+                    pass
+
+            origem_atual = st.session_state.get("sf_localizacao_para_rota")
+            if origem_atual:
+                precisao = origem_atual.get("precisao")
+                precisao_texto = (
+                    f" Precisão informada pelo dispositivo: aproximadamente {float(precisao):.0f} m."
+                    if isinstance(precisao, (int, float)) else ""
+                )
+                st.success("Localização obtida com autorização do navegador." + precisao_texto)
+                with st.form("formulario_rota_pesquisa"):
+                    coluna_destino_rota, coluna_modo_rota = st.columns([3, 2], gap="medium")
+                    with coluna_destino_rota:
+                        destino_pesquisa = st.selectbox(
+                            "Unidade de saúde",
+                            options=list(destinos_pesquisa.keys()),
+                            key="sf_destino_rota_pesquisa",
+                        )
+                    with coluna_modo_rota:
+                        modo_pesquisa = st.radio(
+                            "Como deseja chegar?",
+                            options=["A pé", "Carro"],
+                            horizontal=True,
+                            key="sf_modo_rota_pesquisa",
+                        )
+                    enviar_rota_pesquisa = st.form_submit_button(
+                        "Calcular distância e tempo",
+                        type="primary",
+                        icon=":material/route:",
+                        width="stretch",
+                    )
+
+                if enviar_rota_pesquisa:
+                    st.session_state.pop("sf_rota_pesquisa_calculada", None)
+                    try:
+                        chave_ors_pesquisa = str(
+                            st.secrets.get("openrouteservice_api_key", "")
+                        ).strip()
+                    except Exception:
+                        chave_ors_pesquisa = ""
+
+                    if not chave_ors_pesquisa:
+                        st.error(
+                            "A chave da HeiGIT não foi encontrada. Confira `openrouteservice_api_key` "
+                            "nos Secrets do Streamlit."
+                        )
+                    else:
+                        destino_coords_pesquisa = destinos_pesquisa[destino_pesquisa]
+                        perfil_pesquisa = "foot-walking" if modo_pesquisa == "A pé" else "driving-car"
+                        with st.spinner("Calculando o trajeto a partir da sua localização..."):
+                            try:
+                                resultado_rota_pesquisa = calcular_rota_ors(
+                                    origem_atual,
+                                    destino_coords_pesquisa,
+                                    perfil_pesquisa,
+                                    chave_ors_pesquisa,
+                                )
+                                st.session_state["sf_rota_pesquisa_calculada"] = {
+                                    "origem": origem_atual,
+                                    "destino": {
+                                        **destino_coords_pesquisa,
+                                        "nome": destino_pesquisa,
+                                    },
+                                    "rota": resultado_rota_pesquisa["coordenadas"],
+                                    "distancia_metros": resultado_rota_pesquisa["distancia_metros"],
+                                    "duracao_segundos": resultado_rota_pesquisa["duracao_segundos"],
+                                    "modo": modo_pesquisa,
+                                }
+                            except RuntimeError as erro:
+                                st.error(str(erro))
+                            except Exception:
+                                st.error(
+                                    "Não foi possível calcular o trajeto agora. "
+                                    "Verifique sua conexão e tente novamente."
+                                )
+
+                rota_pesquisa_calculada = st.session_state.get("sf_rota_pesquisa_calculada")
+                if rota_pesquisa_calculada:
+                    distancia_rota = rota_pesquisa_calculada["distancia_metros"]
+                    duracao_rota = rota_pesquisa_calculada["duracao_segundos"]
+                    distancia_texto = (
+                        f"{distancia_rota:.0f} m"
+                        if distancia_rota < 1000
+                        else f"{distancia_rota / 1000:.1f} km"
+                    )
+                    minutos_rota = round(duracao_rota / 60)
+                    if minutos_rota < 60:
+                        tempo_texto = f"{minutos_rota} min"
+                    else:
+                        horas_rota, minutos_restantes_rota = divmod(minutos_rota, 60)
+                        tempo_texto = (
+                            f"{horas_rota} h" if not minutos_restantes_rota
+                            else f"{horas_rota} h {minutos_restantes_rota} min"
+                        )
+                    metrica_distancia, metrica_tempo, metrica_modo = st.columns(3)
+                    metrica_distancia.metric("Distância pela rota", distancia_texto)
+                    metrica_tempo.metric("Tempo estimado", tempo_texto)
+                    metrica_modo.metric("Deslocamento", rota_pesquisa_calculada["modo"])
+                    exibir_mapa_rota(
+                        rota_pesquisa_calculada["origem"],
+                        rota_pesquisa_calculada["destino"],
+                        rota_pesquisa_calculada["rota"],
+                    )
+                    st.caption(
+                        "Estimativa de percurso fornecida pela HeiGIT/OpenRouteService. "
+                        "O tempo pode variar conforme as condições reais do trajeto e do trânsito. "
+                        "A localização é usada para calcular a rota e não é salva no cadastro do projeto."
+                    )
+            else:
+                st.caption(
+                    "Clique no botão de localização exibido abaixo e autorize o navegador. "
+                    "Depois, escolha uma unidade e o meio de deslocamento."
+                )
+
     marcadores, sem_coordenadas = [], []
     for unidade in filtradas:
         coords = obter_coordenadas(unidade)
@@ -677,10 +931,13 @@ if pagina == "Início":
             continue
         confirmada = unidade.get("localizacao_confirmada") is True
         categoria = obter_categoria(unidade)
+        status_mapa = avaliar_funcionamento(unidade.get("horario"))
         popup = (
             f"<strong>{html.escape(nome)}</strong><br>"
             f"{html.escape(categoria)} · {html.escape(str(unidade.get('bairro', 'Bairro não informado')))}<br>"
-            f"{'Localização validada' if confirmada else 'Coordenada cadastrada, ainda não validada'}"
+            f"<span class='{html.escape(status_mapa['classe'])}'><strong>{html.escape(status_mapa['rotulo'])}</strong></span><br>"
+            f"<small>{html.escape(status_mapa['detalhe'])}</small><br>"
+            f"<small>{'Localização validada' if confirmada else 'Coordenada cadastrada, ainda não validada'}</small>"
         )
         marcadores.append({
             "latitude": coords["latitude"], "longitude": coords["longitude"],
@@ -722,7 +979,11 @@ if pagina == "Início":
                 ) + '</div>'
             )
             if marcadores:
-                st.caption("Marcadores tracejados indicam localizações provisórias, ainda não confirmadas pela equipe.")
+                st.caption(
+                "Ao selecionar um marcador, o mapa apresenta uma estimativa de funcionamento baseada no horário cadastrado. "
+                "Essa indicação não confirma a abertura real da unidade nem a disponibilidade de atendimento. "
+                "Marcadores tracejados indicam localizações provisórias, ainda não confirmadas pela equipe."
+            )
             if sem_coordenadas:
                 with st.expander(f"Unidades sem coordenadas ({len(sem_coordenadas)})"):
                     st.write(" · ".join(sem_coordenadas))
@@ -806,6 +1067,17 @@ elif pagina == "Mobilidade":
             type="primary",
             icon=":material/open_in_new:",
         )
+
+    st.html(
+        '<h2 class="sf-section-title">Sua localização no mapa</h2>'
+        '<p>Ative a localização do navegador para acompanhar sua posição enquanto utiliza esta página. '
+        'O acesso depende da sua autorização e de uma conexão segura.</p>'
+    )
+    exibir_mapa_localizacao_usuario()
+    st.caption(
+        "Privacidade: a posição é exibida no próprio navegador e não é enviada nem armazenada pelo Saúde em Foco. "
+        "A precisão depende do dispositivo, das permissões e do sinal disponível."
+    )
 
     linhas = [
         ("102", "João Paulo II / Piranga"),
@@ -959,7 +1231,11 @@ elif pagina == "Mobilidade":
                 f'<h2>{icone_material("schedule")}Consulta de itinerários</h2>'
                 '<p>As linhas e os horários podem sofrer alterações. A consulta atualizada deve ser feita diretamente na plataforma de transporte.</p>'
                 f'<h2>{icone_material("location_on")}Pontos de ônibus próximos às unidades</h2>'
+<<<<<<< HEAD
                 '<p>O guia consulta pontos de parada cadastrados no OpenStreetMap em um raio de até 500 metros das unidades com coordenadas confirmadas pela equipe.</p>'
+=======
+                '<p>O guia consulta pontos de parada cadastrados no OpenStreetMap em um raio de até 1 km das unidades com coordenadas confirmadas pela equipe, organizando os resultados por faixas de distância.</p>'
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
                 '<p>A proximidade de um ponto não comprova que uma linha específica atende à unidade. A associação entre ponto e linha depende de confirmação do itinerário.</p>'
                 '</aside>'
             )
@@ -973,7 +1249,11 @@ elif pagina == "Mobilidade":
         st.info("Ainda não há unidades com coordenadas confirmadas disponíveis para esta consulta.")
     else:
         with st.spinner("Consultando pontos de ônibus mapeados em Juazeiro..."):
+<<<<<<< HEAD
             resultado_mobilidade = consultar_pontos_onibus(tuple(unidades_com_coordenadas_confirmadas), 500)
+=======
+            resultado_mobilidade = consultar_pontos_onibus(tuple(unidades_com_coordenadas_confirmadas), 1000)
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
         if resultado_mobilidade["erro"]:
             st.warning(
@@ -989,6 +1269,7 @@ elif pagina == "Mobilidade":
             st.html(
                 '<div class="sf-metrics">'
                 f'<div class="sf-metric">{icone_material("domain")}<div><strong>{len(unidades_com_coordenadas_confirmadas)}</strong><span>Unidades analisadas</span></div></div>'
+<<<<<<< HEAD
                 f'<div class="sf-metric">{icone_material("directions_bus")}<div><strong>{len(pontos)}</strong><span>Pontos encontrados</span></div></div>'
                 f'<div class="sf-metric">{icone_material("location_on")}<div><strong>{len(unidades_com_pontos)}</strong><span>Unidades com ponto próximo</span></div></div>'
                 '</div>'
@@ -1012,6 +1293,54 @@ elif pagina == "Mobilidade":
                                 st.caption(f"Operador informado no mapa: {ponto['operador']}")
 
             st.caption("Fonte: OpenStreetMap contributors, consultado via Overpass API. Os dados são colaborativos, podem estar incompletos ou desatualizados e não substituem a confirmação com a operadora do transporte.")
+=======
+                f'<div class="sf-metric">{icone_material("directions_bus")}<div><strong>{len(pontos)}</strong><span>Paradas localizadas</span></div></div>'
+                f'<div class="sf-metric">{icone_material("location_on")}<div><strong>{len(unidades_com_pontos)}</strong><span>Unidades com parada próxima</span></div></div>'
+                '</div>'
+            )
+            if not pontos:
+                st.info(
+                    "Nenhuma parada localizada em um raio de até 1 km das unidades analisadas. "
+                    "Isso não significa necessariamente ausência de transporte; o mapa colaborativo pode estar incompleto."
+                )
+            else:
+                faixas_distancia = (
+                    "Até 300 m",
+                    "De 301 a 500 m",
+                    "De 501 m a 1 km",
+                )
+                for nome_unidade, _, _ in unidades_com_coordenadas_confirmadas:
+                    pontos_unidade = unidades_com_pontos.get(nome_unidade, [])
+                    with st.expander(
+                        f"{nome_unidade} · {len(pontos_unidade)} parada(s) localizada(s)",
+                        expanded=bool(pontos_unidade),
+                    ):
+                        if not pontos_unidade:
+                            st.info("Nenhuma parada localizada em um raio de até 1 km.")
+                            continue
+
+                        for faixa in faixas_distancia:
+                            pontos_faixa = [
+                                ponto for ponto in pontos_unidade
+                                if ponto.get("faixa_distancia") == faixa
+                            ]
+                            # Faixas sem resultados não ocupam espaço na interface.
+                            if not pontos_faixa:
+                                continue
+
+                            st.markdown(f"**{faixa} · {len(pontos_faixa)} parada(s)**")
+                            for ponto in pontos_faixa:
+                                distancia = ponto["distancia_metros"]
+                                distancia_texto = f"{distancia} m" if distancia < 1000 else f"{distancia / 1000:.1f} km"
+                                st.markdown(
+                                    f"- **{html.escape(ponto['nome'])}** — aproximadamente {distancia_texto} "
+                                    f"([ver no OpenStreetMap]({ponto['osm_url']}))"
+                                )
+                                if ponto.get("operador"):
+                                    st.caption(f"Operador informado no mapa: {ponto['operador']}")
+
+            st.caption("Fonte: OpenStreetMap contributors, consultado via Overpass API. Os dados são colaborativos, podem estar incompletos ou desatualizados e não substituem a confirmação com a operadora do transporte. As distâncias são estimativas em linha reta, não trajetos a pé.")
+>>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
 elif pagina == "Sobre o projeto":
     with st.container(key="sf_page_intro"):

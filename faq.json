@@ -1,166 +1,272 @@
 [
   {
-    "categoria": "Como usar o Saúde em Foco",
-    "pergunta": "Como encontro uma unidade de saúde no aplicativo?",
-    "resposta": "Acesse “Buscar unidades” e digite o nome da unidade, o bairro ou parte do endereço. Você também pode selecionar uma categoria — UBS, UPA ou Hospital — para restringir os resultados. As unidades com coordenadas cadastradas aparecem no mapa.",
+    "categoria": "Uso do guia",
+    "pergunta": "Como encontro uma unidade de saúde?",
+    "resposta": "Na página inicial, pesquise pelo nome da unidade, bairro ou endereço. Você também pode filtrar os resultados por UBS, UPA ou Hospital. Se a unidade tiver coordenadas cadastradas, ela poderá aparecer no mapa.",
     "palavras_chave": [
       "buscar",
       "pesquisar",
       "encontrar",
-      "localizar",
       "unidade",
-      "mapa",
+      "bairro",
       "endereço",
-      "bairro"
+      "filtro",
+      "UBS",
+      "UPA",
+      "hospital"
     ]
   },
   {
-    "categoria": "Como usar o Saúde em Foco",
-    "pergunta": "Como faço para ver a localização de uma unidade?",
-    "resposta": "Na página “Buscar unidades”, consulte o mapa. Os marcadores representam os estabelecimentos que possuem coordenadas cadastradas. Quando disponível, o botão “Ver no Google Maps” abre uma consulta externa de localização.",
+    "categoria": "Uso do guia",
+    "pergunta": "O que encontro no cadastro de cada unidade?",
+    "resposta": "Os cartões reúnem as informações disponíveis na base do projeto, como categoria, endereço, bairro, contato, horário e serviços cadastrados. Nem todos os campos estão disponíveis ou confirmados para todas as unidades. Consulte também as fontes indicadas e confirme informações importantes diretamente com o estabelecimento.",
+    "palavras_chave": [
+      "cartão",
+      "cadastro",
+      "informações",
+      "contato",
+      "horário",
+      "serviços",
+      "endereço"
+    ]
+  },
+  {
+    "categoria": "Uso do guia",
+    "pergunta": "Qual é a diferença entre UBS, UPA e hospital?",
+    "resposta": "A UBS atua principalmente na Atenção Primária, com ações de prevenção, acompanhamento e cuidados básicos. A UPA integra a rede de urgência e emergência. Os hospitais oferecem atendimento hospitalar e procedimentos conforme sua estrutura e os serviços disponíveis. A oferta concreta varia de uma unidade para outra.",
+    "palavras_chave": [
+      "UBS",
+      "UPA",
+      "hospital",
+      "diferença",
+      "atendimento",
+      "Atenção Primária",
+      "urgência"
+    ]
+  },
+  {
+    "categoria": "Funcionamento e serviços",
+    "pergunta": "A indicação “Aberto agora” confirma que a unidade está atendendo?",
+    "resposta": "Não. Ao selecionar um marcador no mapa, o guia apresenta uma estimativa calculada a partir do horário cadastrado e do dia e horário atuais. A estimativa não consulta a operação da unidade em tempo real e pode não considerar feriados, alterações de expediente ou interrupções. Ela também não confirma a disponibilidade de profissionais ou serviços. Antes de se deslocar, confirme diretamente com a unidade.",
+    "palavras_chave": [
+      "aberto",
+      "fechado",
+      "funcionamento",
+      "horário",
+      "agora",
+      "marcador",
+      "mapa",
+      "tempo real"
+    ]
+  },
+  {
+    "categoria": "Funcionamento e serviços",
+    "pergunta": "O aplicativo informa quais profissionais ou serviços estão disponíveis neste momento?",
+    "resposta": "Não. O Saúde em Foco apresenta informações cadastradas sobre os estabelecimentos, mas não acompanha escalas de profissionais, filas, leitos, capacidade ou disponibilidade de serviços em tempo real. A presença de um serviço no cadastro não garante que ele esteja disponível no momento da consulta.",
+    "palavras_chave": [
+      "profissionais",
+      "médico",
+      "equipe",
+      "serviços",
+      "disponibilidade",
+      "fila",
+      "leito",
+      "capacidade"
+    ]
+  },
+  {
+    "categoria": "Funcionamento e serviços",
+    "pergunta": "O Saúde em Foco agenda consultas ou substitui os canais do SUS?",
+    "resposta": "Não. O guia não realiza agendamentos, não marca consultas e não substitui os canais oficiais de atendimento, encaminhamento ou regulação do SUS. Sua finalidade é organizar informações para ajudar a população a localizar estabelecimentos de saúde em Juazeiro (BA).",
+    "palavras_chave": [
+      "agendamento",
+      "consulta",
+      "marcar",
+      "SUS",
+      "regulação",
+      "encaminhamento"
+    ]
+  },
+  {
+    "categoria": "Mapa e localização",
+    "pergunta": "Por que algumas unidades não aparecem no mapa?",
+    "resposta": "O mapa depende de coordenadas geográficas cadastradas para cada estabelecimento. Unidades sem coordenadas válidas não recebem marcador. Além disso, alguns pontos podem estar identificados como provisórios, quando ainda não foram confirmados pela equipe do projeto.",
     "palavras_chave": [
       "mapa",
-      "localização",
+      "marcador",
       "coordenadas",
-      "google maps",
-      "endereço",
+      "localização",
+      "provisório",
+      "validada",
+      "unidade"
+    ]
+  },
+  {
+    "categoria": "Mapa e localização",
+    "pergunta": "O que significa uma localização provisória ou não confirmada?",
+    "resposta": "Significa que há uma coordenada cadastrada, mas ela ainda não foi confirmada pela equipe do projeto. O marcador pode aparecer com uma identificação visual diferente dos pontos confirmados. Confira o endereço e a localização antes de utilizar a informação para deslocamento.",
+    "palavras_chave": [
+      "provisória",
+      "provisorio",
+      "não confirmada",
+      "validada",
+      "coordenada",
       "marcador"
     ]
   },
   {
-    "categoria": "Unidades de saúde",
-    "pergunta": "Qual é a diferença entre UBS, UPA e hospital?",
-    "resposta": "A UBS é voltada principalmente à atenção básica e ao acompanhamento de saúde da população. A UPA integra a rede de urgência e emergência, oferecendo atendimento em situações que precisam de avaliação rápida. Hospitais realizam atendimentos e procedimentos de maior complexidade, conforme sua estrutura e os serviços disponíveis. A oferta concreta varia de estabelecimento para estabelecimento.",
+    "categoria": "Mobilidade",
+    "pergunta": "Como vejo minha localização atual na página Mobilidade?",
+    "resposta": "Na seção “Sua localização no mapa”, clique em “Ativar minha localização” e autorize o acesso solicitado pelo navegador. O mapa exibirá sua posição e poderá atualizá-la enquanto a página permanecer aberta. O recurso depende de navegador compatível, conexão segura (HTTPS), permissão concedida e disponibilidade dos serviços de localização do dispositivo.",
     "palavras_chave": [
-      "ubs",
-      "upa",
-      "hospital",
-      "diferença",
-      "atenção básica",
-      "urgência",
-      "emergência"
+      "GPS",
+      "localização atual",
+      "minha localização",
+      "ativar",
+      "navegador",
+      "permissão",
+      "mapa"
     ]
   },
   {
-    "categoria": "Serviços e atendimento",
-    "pergunta": "Quais serviços uma UBS pode oferecer?",
-    "resposta": "As UBS podem oferecer ações de atenção primária, como consultas, vacinação, acompanhamento pré-natal, cuidados de enfermagem, prevenção e acompanhamento de condições de saúde. Nem toda unidade oferece todos os serviços. Consulte o registro da unidade no guia e confirme diretamente com o estabelecimento.",
+    "categoria": "Mobilidade",
+    "pergunta": "Como calculo uma rota a partir da minha localização na página inicial?",
+    "resposta": "Na página Início, use a opção de cálculo de distância, autorize o acesso à localização no navegador, escolha uma unidade com localização confirmada e selecione o deslocamento a pé ou de carro. O Saúde em Foco apresenta a distância, o tempo estimado e o trajeto no mapa. A localização é utilizada para realizar o cálculo e não é salva no cadastro do projeto. O recurso depende da permissão do navegador e da disponibilidade do serviço de rotas.",
     "palavras_chave": [
-      "ubs",
-      "serviços",
-      "consulta",
-      "vacinação",
-      "vacina",
-      "pré-natal",
-      "enfermagem",
-      "atenção primária"
+      "rota",
+      "distância",
+      "localização",
+      "GPS",
+      "a pé",
+      "carro",
+      "página inicial",
+      "Início",
+      "tempo estimado"
     ]
   },
   {
-    "categoria": "Serviços e atendimento",
-    "pergunta": "Onde encontro informações sobre vacinação?",
-    "resposta": "Na página “Buscar unidades”, procure por “vacinação” ou consulte os serviços cadastrados em cada estabelecimento. Como a oferta, os públicos atendidos e os horários podem variar, confirme a informação com a unidade ou com os canais oficiais da Secretaria de Saúde.",
+    "categoria": "Mobilidade",
+    "pergunta": "Preciso ativar minha localização para calcular uma rota?",
+    "resposta": "Não. A localização automática é independente do cálculo de rota. Você pode continuar informando manualmente seu ponto de partida, escolhendo a unidade de destino e selecionando o deslocamento a pé ou de carro. A rota é calculada mesmo que você não autorize o acesso à localização do dispositivo.",
     "palavras_chave": [
-      "vacinação",
-      "vacina",
-      "imunização",
-      "dose",
-      "serviços"
+      "rota",
+      "origem",
+      "endereço",
+      "GPS",
+      "localização",
+      "manual",
+      "a pé",
+      "carro"
     ]
   },
   {
-    "categoria": "Serviços e atendimento",
-    "pergunta": "O aplicativo informa quais profissionais estão disponíveis agora?",
-    "resposta": "Não. O Saúde em Foco é um guia informativo e não acompanha escalas, presença de profissionais ou disponibilidade de atendimento em tempo real. Informações cadastrais, quando apresentadas, não significam que o profissional esteja disponível no momento da consulta.",
+    "categoria": "Mobilidade",
+    "pergunta": "Como funciona o cálculo de rota até uma unidade de saúde?",
+    "resposta": "Na seção de cálculo de rota, informe um endereço ou ponto de partida em Juazeiro (BA), selecione a unidade de destino e escolha o modo a pé ou de carro. O sistema utiliza um serviço de geocodificação e roteamento para estimar o trajeto, a distância e a duração. O tempo estimado não considera necessariamente condições de trânsito em tempo real.",
     "palavras_chave": [
-      "profissionais",
-      "médicos",
-      "equipe",
-      "disponibilidade",
-      "agora",
-      "tempo real",
-      "escala"
+      "calcular rota",
+      "trajeto",
+      "distância",
+      "duração",
+      "a pé",
+      "carro",
+      "origem",
+      "destino"
     ]
   },
   {
-    "categoria": "Serviços e atendimento",
-    "pergunta": "O Saúde em Foco realiza agendamentos ou marca consultas?",
-    "resposta": "Não. O aplicativo não realiza agendamentos, não marca consultas e não substitui os sistemas oficiais de regulação ou os canais de atendimento das unidades. Ele organiza informações para ajudar a população a localizar os serviços.",
+    "categoria": "Mobilidade",
+    "pergunta": "Como são organizados os pontos de ônibus próximos às unidades?",
+    "resposta": "O guia consulta pontos cadastrados no OpenStreetMap por meio da Overpass API e organiza os resultados em três faixas de distância em linha reta a partir da unidade: até 300 m; de 301 a 500 m; e de 501 m a 1 km. As faixas sem resultados não são exibidas. Cada parada é apresentada em apenas uma faixa.",
     "palavras_chave": [
-      "agendamento",
-      "agendar",
-      "marcar",
-      "consulta",
-      "regulação",
-      "marcação"
+      "ônibus",
+      "parada",
+      "ponto",
+      "300 m",
+      "500 m",
+      "1 km",
+      "distância",
+      "faixas",
+      "Overpass",
+      "OpenStreetMap"
     ]
   },
   {
-    "categoria": "Informações e atualização",
-    "pergunta": "As informações são atualizadas em tempo real?",
-    "resposta": "Não. O guia apresenta informações reunidas em uma base de dados e não possui atualização automática em tempo real. Endereços, contatos, horários e serviços podem mudar; por isso, confirme os dados diretamente com o estabelecimento antes de se deslocar.",
+    "categoria": "Mobilidade",
+    "pergunta": "O que significa “Parada sem identificação nominal”?",
+    "resposta": "Significa que o ponto foi encontrado na base colaborativa do OpenStreetMap, mas não possui nome registrado nos dados consultados. A localização está mapeada, embora não haja identificação nominal disponível. Isso não informa, por si só, quais linhas atendem ao ponto.",
+    "palavras_chave": [
+      "parada sem identificação nominal",
+      "sem nome",
+      "OpenStreetMap",
+      "ponto de ônibus",
+      "identificação"
+    ]
+  },
+  {
+    "categoria": "Mobilidade",
+    "pergunta": "Não apareceu nenhuma parada em até 1 km. Isso significa que não há ônibus na região?",
+    "resposta": "Não necessariamente. Significa apenas que a consulta não encontrou pontos cadastrados no OpenStreetMap dentro do raio de até 1 km da unidade analisada. A base colaborativa pode estar incompleta ou desatualizada; a ausência de um ponto no mapa não comprova ausência de transporte público.",
+    "palavras_chave": [
+      "nenhuma parada",
+      "não localizado",
+      "1 km",
+      "ônibus",
+      "transporte público",
+      "OpenStreetMap"
+    ]
+  },
+  {
+    "categoria": "Mobilidade",
+    "pergunta": "O guia informa qual linha de ônibus atende cada unidade?",
+    "resposta": "Não de forma confirmada. O guia apresenta uma relação inicial de linhas e mostra pontos de ônibus mapeados nas proximidades, mas a proximidade não comprova que uma linha específica pare naquele local. Consulte o Cittamobi e os canais da operadora para verificar linhas, itinerários e horários atualizados.",
+    "palavras_chave": [
+      "linha",
+      "linhas",
+      "itinerário",
+      "itinerario",
+      "Cittamobi",
+      "horário de ônibus",
+      "operadora"
+    ]
+  },
+  {
+    "categoria": "Dados e confiabilidade",
+    "pergunta": "As informações do Saúde em Foco são atualizadas em tempo real?",
+    "resposta": "Não. O guia utiliza uma base organizada pela equipe e consulta dados colaborativos do OpenStreetMap para localizar pontos de ônibus. Essas informações não equivalem a um monitoramento em tempo real e podem estar incompletas ou desatualizadas. Confirme horários, serviços, endereços e itinerários diretamente nos canais responsáveis.",
     "palavras_chave": [
       "atualização",
       "tempo real",
-      "atualizado",
-      "horário",
-      "mudança",
-      "dados"
+      "dados",
+      "fonte",
+      "OpenStreetMap",
+      "informações"
     ]
   },
   {
-    "categoria": "Informações e atualização",
+    "categoria": "Dados e confiabilidade",
     "pergunta": "O Saúde em Foco reúne todas as unidades de saúde de Juazeiro?",
-    "resposta": "Não necessariamente. A base atual reúne uma seleção de estabelecimentos pesquisados pela equipe e não deve ser considerada a relação completa da rede municipal. A quantidade e a cobertura podem ser ampliadas conforme a verificação de novas informações.",
+    "resposta": "A base reúne os estabelecimentos pesquisados e cadastrados pela equipe do projeto, mas não deve ser considerada uma relação oficial e completa de toda a rede de saúde de Juazeiro. A cobertura depende da coleta, conferência e atualização dos dados disponíveis.",
     "palavras_chave": [
       "todas",
-      "completa",
-      "rede municipal",
       "unidades",
-      "quantidade",
-      "cobertura"
+      "lista completa",
+      "Juazeiro",
+      "cobertura",
+      "base de dados"
     ]
   },
   {
-    "categoria": "Mobilidade",
-    "pergunta": "Como consulto as linhas de ônibus de Juazeiro?",
-    "resposta": "Acesse a página “Mobilidade” e utilize o link para consultar linhas e itinerários no Cittamobi. As informações exibidas no guia são uma referência inicial; confira os itinerários e horários diretamente na plataforma de transporte.",
+    "categoria": "Dados e confiabilidade",
+    "pergunta": "Como são utilizadas as informações da minha localização?",
+    "resposta": "A posição é solicitada pelo navegador e exibida no mapa da própria página Mobilidade. O código do recurso apresenta a posição no mapa sem enviá-la ou armazená-la pelo Saúde em Foco. O navegador e o dispositivo podem aplicar suas próprias configurações e políticas de privacidade; você pode negar a permissão ou interrompê-la nas configurações do navegador.",
     "palavras_chave": [
-      "ônibus",
-      "transporte",
-      "mobilidade",
-      "linha",
-      "itinerário",
-      "cittamobi",
-      "horário"
-    ]
-  },
-  {
-    "categoria": "Mobilidade",
-    "pergunta": "O aplicativo informa qual ônibus passa em cada unidade de saúde?",
-    "resposta": "Ainda não de forma confirmada. O guia evita associar uma linha a uma unidade sem verificar os pontos de parada próximos ao endereço. Por isso, consulte o itinerário atualizado na plataforma de transporte antes de viajar.",
-    "palavras_chave": [
-      "ônibus",
-      "linha",
-      "unidade",
-      "ponto",
-      "parada",
-      "transporte",
-      "perto"
-    ]
-  },
-  {
-    "categoria": "Informações e atualização",
-    "pergunta": "Como posso confirmar se uma unidade oferece determinado serviço?",
-    "resposta": "Consulte as informações cadastradas na página “Buscar unidades” e utilize o contato ou a fonte indicada, quando disponíveis. Como os serviços podem mudar e nem sempre estão integralmente descritos no guia, a confirmação deve ser feita diretamente com o estabelecimento ou em um canal oficial.",
-    "palavras_chave": [
-      "confirmar",
-      "serviço",
-      "oferece",
-      "contato",
-      "fonte",
-      "telefone",
-      "informação"
+      "privacidade",
+      "dados pessoais",
+      "localização",
+      "armazenamento",
+      "compartilhamento",
+      "permissão"
     ]
   }
 ]

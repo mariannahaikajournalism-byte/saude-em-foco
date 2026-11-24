@@ -120,7 +120,7 @@
     z-index: -1;
     pointer-events: none;
     inset: 0 0 0 62%;
-    background: url("./app/static/hero.webp") center 29% / cover no-repeat;
+    background: url("./static/hero.webp") center 29% / cover no-repeat;
     mask-image: linear-gradient(90deg, transparent, #000 33%);
 }
 .sf-intro { max-width: 64%; color: var(--sf-ink); }
@@ -679,3 +679,21 @@ dl.sf-creditos, .sf-tech dl { margin: 0; padding: 0; }
 .sf-status-closed { background: #fff1e9; color: #8b3d1e !important; }
 .sf-status-continuous { background: #e9f2fb; color: #20547b !important; }
 .sf-status-unknown { background: #f0f2f2; color: #46545a !important; }
+
+
+/* Botões de envio de formulários: verde institucional do Saúde em Foco. */
+[data-testid="stFormSubmitButton"] button {
+    background: var(--sf-primary) !important;
+    border: 1px solid var(--sf-primary) !important;
+    color: #ffffff !important;
+    font-weight: 750 !important;
+}
+[data-testid="stFormSubmitButton"] button:hover {
+    background: #00554e !important;
+    border-color: #00554e !important;
+    color: #ffffff !important;
+}
+[data-testid="stFormSubmitButton"] button:focus-visible {
+    outline: 2px solid var(--sf-accent) !important;
+    outline-offset: 2px !important;
+}

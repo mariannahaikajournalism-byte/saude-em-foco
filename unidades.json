@@ -1,771 +1,772 @@
 [
-    {
-        "nome": "USF Alto da Aliança",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Alto da Aliança",
-        "endereco": "Avenida Irmã Dulce, S/N - Alto da Aliança, Juazeiro - BA",
-        "contato": "Telefone: (74) 3612-766 | E-mail: ubs.altodaalianca@juazeiro.ba.gov.br",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "2770997",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": null,
-        "longitude": null,
-        "localizacao_confirmada": false,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.41409%2C-40.50324",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/usf-alto-da-alianca-cnes-2770997/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
-    },
-    {
-        "nome": "USF Antônio Guilhermino",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Antônio Guilhermino",
-        "endereco": "Av. dos Evangélicos, S/N - Antônio Guilhermino, Juazeiro - BA, CEP 48913-606",
-        "contato": "Não informado no CNES consultado",
-        "horario": "Segunda a sexta: 7h30 às 17h",
-        "cnes": "5460573",
-        "esfera_gestao": "Municipal",
-        "servicos": [],
-        "latitude": null,
-        "longitude": null,
-        "localizacao_confirmada": false,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405460573",
-        "fontes_adicionais": [
-            "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-antonio-guilhermino-5460573/",
-            "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-antonio-guilhermino-5460573"
-        ],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
-    },
-    {
-        "nome": "USF CAIC",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Antônio Conselheiro",
-        "endereco": "Rua Armando de Jesus, S/N - Antônio Conselheiro, Juazeiro - BA, CEP 48916-797",
-        "contato": "(74) 3611-0254",
-        "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
-        "cnes": "2824981",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atendimento domiciliar",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "home"
-            },
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": null,
-        "longitude": null,
-        "localizacao_confirmada": false,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402824981",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-caic-cnes-2824981/"
-        ],
-        "observacao": "Ficha CNES consultada; coordenadas ainda não confirmadas."
-    },
-    {
-        "nome": "USF CAJ",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Projeto CAJ",
-        "endereco": "Projeto CAJ, S/N - Juazeiro - BA",
-        "contato": "E-mail: ubs.caj@juazeiro.ba.gov.br",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "3493741",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": null,
-        "longitude": null,
-        "localizacao_confirmada": false,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.41397%2C-40.50297",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/usf-caj-cnes-3493741/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
-    },
-    {
-        "nome": "USF Campos",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Comunidade de Campos",
-        "endereco": "Sítio São José, Fazenda Campos, S/N - Comunidade de Campos, Juazeiro - BA, CEP 48920-899",
-        "contato": "Não informado no CNES consultado",
-        "horario": "Segunda a sexta: 7h30 às 17h",
-        "cnes": "5887038",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": null,
-        "longitude": null,
-        "localizacao_confirmada": false,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405887038",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-campos-cnes-5887038/"
-        ],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
-    },
-    {
-        "nome": "USF Centro de Saúde III (UBS Angari)",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Centro / Angari",
-        "endereco": "Av. Carmela Dutra, S/N - Centro, Juazeiro - BA, CEP 48903-530",
-        "contato": "(74) 3611-4600",
-        "horario": "Segunda a sexta: 7h30 às 17h (CNES)",
-        "cnes": "2510197",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviços de atenção básica registrados no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES; confirme os procedimentos disponíveis diretamente com a unidade.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": -9.412316,
-        "longitude": -40.496875,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.412316%2C-40.496875",
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402510197",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-centro-de-saude-iii-cnes-2510197/"
-        ],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
-        "fonte_coordenadas": "Google Maps; ponto conferido pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "USF CSU I (Alto do Alencar)",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Alto do Alencar",
-        "endereco": "Rua Pio XI, S/N - Alto do Alencar, Juazeiro - BA, CEP 48905-499",
-        "contato": "(74) 3611-6105",
-        "horario": "Segunda a sexta: 7h30 às 17h",
-        "cnes": "2770873",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço de atenção primária cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Posto de coleta de materiais biológicos",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "science"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": -9.435835085776638,
-        "longitude": -40.493226348406054,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402770873",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-csu-i-cnes-2770873/"
-        ],
-        "observacao": "O CNES identifica a unidade como USF CSU I. O endereço Av. Américo Tanury informado no cadastro antigo não foi mantido porque diverge da ficha CNES. Coordenadas pendentes.",
-        "fonte_coordenadas": "Google Maps; coordenada escolhida pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.435835085776638%2C-40.493226348406054"
-    },
-    {
-        "nome": "USF Dom Thomaz",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Dom Thomaz",
-        "endereco": "Rodovia BA-210, S/N - Dom Thomaz, Juazeiro - BA, CEP 48905-679",
-        "contato": "Não informado no CNES consultado",
-        "horario": "Segunda a sexta: 7h30 às 17h",
-        "cnes": "5460530",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Posto de coleta de materiais biológicos",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "science"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": -9.440891,
-        "longitude": -40.492858,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405460530",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-dom-thomaz-cnes-5460530/"
-        ],
-        "observacao": "Serviços cadastrais identificados no diretório baseado no CNES; coordenadas pendentes.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.440891%2C-40.492858"
-    },
-    {
-        "nome": "USF Jardim Primavera",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Jardim Primavera",
-        "endereco": "Avenida Mandacaru, S/N - Jardim Primavera, Juazeiro - BA, CEP 48908-524",
-        "contato": "(74) 3618-3016",
-        "horario": "Segunda a sexta: 7h30 às 12h e 13h30 às 17h (Prefeitura, jun. 2026)",
-        "cnes": "3734137",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": -9.454853,
-        "longitude": -40.417567,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918403734137",
-        "fontes_adicionais": [
-            "https://www.juazeiro.ba.gov.br/ubs-do-jardim-primavera-em-juazeiro-passa-a-funcionar-em-horario-ampliado/",
-            "https://saudenopais.com/estabelecimento/ba/usf-jardim-primavera-cnes-3734137/"
-        ],
-        "observacao": "Coordenadas de diretório baseado no CNES. Há divergência entre endereço informado em fontes distintas; confirmar ponto exato com a unidade.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.454853%2C-40.417567"
-    },
-    {
-        "nome": "USF João Paulo II / José Carlos Tanury",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "João Paulo II",
-        "endereco": "Quadra 12, A-41 - João Paulo II, Juazeiro - BA, CEP 48914-112",
-        "contato": "(74) 3612-0491",
-        "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
-        "cnes": "2598019",
-        "esfera_gestao": "Municipal",
-        "servicos": [],
-        "latitude": -9.473466658432184,
-        "longitude": -40.498659118033714,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402598019",
-        "observacao": "Cadastro básico CNES. Coordenadas pendentes; confirmar se o cadastro corresponde à unidade pretendida.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto; sinal negativo da latitude normalizado",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.473466658432184%2C-40.498659118033714"
-    },
-    {
-        "nome": "USF Maniçoba I",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Maniçoba I",
-        "endereco": "Avenida dos Colonos, S/N - Maniçoba I, Juazeiro - BA",
-        "contato": "Telefone: (74) 3617-8350",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "2770636",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": -9.323981,
-        "longitude": -40.295499,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.323981%2C-40.295499",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/usf-manicoba-i-cnes-2770636/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "USF Parque Residencial João Paulo II",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Parque Residencial",
-        "endereco": "Avenida das Árvores, S/N - Parque Residencial, Juazeiro - BA",
-        "contato": "Telefone: (74) 3613-0991",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "5331099",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": -9.472363,
-        "longitude": -40.492485,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.472363%2C-40.492485",
-        "fonte": "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-parque-residencial-joao-paulo-ii-5331099",
-        "fontes_adicionais": [],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "USF Residencial Dr. Humberto",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Residencial Dr. Humberto",
-        "endereco": "Rua B, 335 - Residencial Dr. Humberto, Juazeiro - BA",
-        "contato": "Não localizado em fonte consultada",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "4233972",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": -9.421193892388516,
-        "longitude": -40.49195139404713,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.openstreetmap.org/?mlat=-9.421193892388516&mlon=-40.49195139404713#map=18/-9.421193892388516/-40.49195139404713",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/usf-residencial-dr-humberto-cnes-4233972/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
-        "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
-        "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
-    },
-    {
-        "nome": "USF Residencial Juazeiro",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Residencial Juazeiro / Itaberaba",
-        "endereco": "Rua Presidente Abraão Lincoln, S/N - Residencial Juazeiro, Juazeiro - BA",
-        "contato": "Não localizado em fonte consultada",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "0104256",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": -9.450887126476225,
-        "longitude": -40.480695947493906,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.openstreetmap.org/?mlat=-9.450887126476225&mlon=-40.480695947493906#map=18/-9.450887126476225/-40.480695947493906",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/usf-residencial-juazeiro-cnes-0104256/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
-        "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
-        "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
-    },
-    {
-        "nome": "USF Residencial São Francisco",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Residencial São Francisco",
-        "endereco": "Rua das Laranjeiras, 10 - Residencial São Francisco, Juazeiro - BA",
-        "contato": "Não localizado em fonte consultada",
-        "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
-        "cnes": "4729528",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
-                "icone": "stethoscope"
-            }
-        ],
-        "latitude": -9.43428,
-        "longitude": -40.47428,
-        "localizacao_confirmada": false,
-        "mapa": "https://www.openstreetmap.org/?mlat=-9.43428&mlon=-40.47428#map=18/-9.43428/-40.47428",
-        "fonte": "https://saudenopais.com/estabelecimento/ba/ubs-residencial-sao-francisco-cnes-4729528/",
-        "fontes_adicionais": [],
-        "observacao": "Coordenadas reproduzidas de diretório baseado no CNES; marcador provisório, sujeito a conferência visual/local. Coordenada publicada em fonte secundária baseada em cadastro CNES; validar visualmente antes de deslocamento.",
-        "fonte_coordenadas": "https://saudenopais.com/estabelecimento/ba/ubs-residencial-sao-francisco-cnes-4729528/",
-        "observacao_coordenadas": "Coordenadas publicadas por diretório secundário baseado em cadastro CNES; marcador provisório, sujeito a conferência visual."
-    },
-    {
-        "nome": "USF Tabuleiro",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Tabuleiro",
-        "endereco": "Av. Nossa Senhora das Grotas, S/N - Tabuleiro, Juazeiro - BA, CEP 48906-075",
-        "contato": "(74) 3613-1083",
-        "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
-        "cnes": "2598043",
-        "esfera_gestao": "Municipal",
-        "servicos": [],
-        "latitude": -9.432320587115267,
-        "longitude": -40.475848503418845,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402598043",
-        "observacao": "Cadastro básico CNES. Serviços específicos e coordenadas ainda precisam de confirmação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.432320587115267%2C-40.475848503418845"
-    },
-    {
-        "nome": "USF Vila Jacaré",
-        "categoria": "UBS",
-        "municipio": "Juazeiro",
-        "bairro": "Coreia",
-        "endereco": "Rua 1, S/N - Coreia, Juazeiro - BA, CEP 48904-131",
-        "contato": "Não informado no CNES consultado",
-        "horario": "Segunda a sexta: 7h30 às 17h",
-        "cnes": "5881617",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Atenção Primária",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Pré-natal e parto",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "pregnant_woman"
-            },
-            {
-                "categoria": "Atenção ao paciente com tuberculose",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "add"
-            },
-            {
-                "categoria": "Telessaúde",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "computer"
-            }
-        ],
-        "latitude": -9.416076,
-        "longitude": -40.496234,
-        "localizacao_confirmada": true,
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405881617",
-        "fontes_adicionais": [
-            "https://saudenopais.com/estabelecimento/ba/usf-vila-jacare-cnes-5881617/"
-        ],
-        "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.416076%2C-40.496234"
-    },
-    {
-        "nome": "Unidade de Atendimento Pediátrico 24h (UPED)",
-        "categoria": "UPA",
-        "municipio": "Juazeiro",
-        "bairro": "Jardim Flórida",
-        "endereco": "Rua Paulo B. de Carvalho, 2-210 - Jardim Flórida, Juazeiro - BA",
-        "contato": "(74) 99929-3838",
-        "horario": "Atendimento contínuo 24h (diretório local; confirmar com a unidade)",
-        "cnes": "0106860",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Urgência pediátrica",
-                "descricao": "Atendimento pediátrico de urgência e emergência; confirme fluxo e faixa etária diretamente com a unidade.",
-                "icone": "child_care"
-            }
-        ],
-        "latitude": -9.429349,
-        "longitude": -40.508118,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.429349%2C-40.508118",
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Ind_Especialidades_Listar.asp?VAmbu=&VAmbuSUS=&VClassificacao=00&VComp=00&VEstado=29&VHosp=&VHospSus=&VListar=1&VMun=291840&VServico=00&VTerc=00&VTipo=108",
-        "fontes_adicionais": [
-            "https://www.google.com/maps/search/?api=1&query=Unidade+de+Atendimento+Pediatrico+Juazeiro+BA"
-        ],
-        "observacao": "Cadastro identificado, mas não foi possível confirmar coordenadas confiáveis nesta pesquisa; não será exibido como marcador até validação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "UPA Dr. João Oliveira",
-        "categoria": "UPA",
-        "municipio": "Juazeiro",
-        "bairro": "Castelo Branco",
-        "endereco": "Rodovia Lomanto Júnior, S/N, KM 4 - Castelo Branco, Juazeiro - BA, CEP 48906-570",
-        "contato": "(74) 3613-4288 | diretoria.upa@juazeiro.ba.gov.br",
-        "horario": "Atendimento contínuo (CNES)",
-        "cnes": "7094647",
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Urgência e emergência",
-                "descricao": "Atendimento de casos de urgência e emergência.",
-                "icone": "ambulance"
-            },
-            {
-                "categoria": "Diagnóstico por imagem",
-                "descricao": "Serviços de imagem cadastrados, incluindo radiologia e tomografia; confirme a oferta atual antes de se deslocar.",
-                "icone": "radiology"
-            },
-            {
-                "categoria": "Exames laboratoriais",
-                "descricao": "Serviço de laboratório clínico cadastrado no CNES.",
-                "icone": "science"
-            },
-            {
-                "categoria": "Estabilização de pacientes",
-                "descricao": "Estrutura para atendimento e estabilização de pacientes graves.",
-                "icone": "local_hospital"
-            },
-            {
-                "categoria": "Saúde do trabalhador",
-                "descricao": "Serviço cadastrado no CNES.",
-                "icone": "health_and_safety"
-            }
-        ],
-        "latitude": -9.437677,
-        "longitude": -40.497006,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.437677%2C-40.497006",
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918407094647",
-        "fontes_adicionais": [
-            "https://cnes2.datasus.gov.br/Mod_Ambulatorial.asp?VCo_Unidade=2918407094647"
-        ],
-        "observacao": "Coordenadas ainda não confirmadas para marcador no mapa.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "Hospital Materno Infantil de Juazeiro",
-        "categoria": "Hospital",
-        "municipio": "Juazeiro",
-        "bairro": "Mussambê",
-        "endereco": "Avenida Raul Alves, 1000 - Mussambê, Juazeiro - BA",
-        "contato": "(74) 3611-7732",
-        "horario": "Atendimento hospitalar 24h (diretório local; confirmar)",
-        "cnes": null,
-        "esfera_gestao": "Municipal",
-        "servicos": [
-            {
-                "categoria": "Maternidade e atenção materno-infantil",
-                "descricao": "Serviços hospitalares materno-infantis; confirmar serviços, portas de entrada e regulação diretamente com a unidade.",
-                "icone": "breastfeeding"
-            }
-        ],
-        "latitude": -9.41767,
-        "longitude": -40.507347,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.41767%2C-40.507347",
-        "fonte": "https://www.google.com/maps/search/?api=1&query=Hospital+Materno+Infantil+Juazeiro+BA",
-        "fontes_adicionais": [
-            "https://www.google.com/maps/search/?api=1&query=Hospital+Materno+Infantil+Juazeiro+BA"
-        ],
-        "observacao": "Cadastro identificado, mas não foi possível confirmar coordenadas confiáveis nesta pesquisa; não será exibido como marcador até validação.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "Hospital Regional de Juazeiro (HRJ)",
-        "categoria": "Hospital",
-        "municipio": "Juazeiro",
-        "bairro": "Santo Antônio",
-        "endereco": "Travessa do Hospital, S/N - Santo Antônio, Juazeiro - BA, CEP 48903-060",
-        "contato": "(74) 2102-2850",
-        "horario": "Atendimento contínuo (CNES)",
-        "cnes": "4028155",
-        "esfera_gestao": "Estadual",
-        "servicos": [
-            {
-                "categoria": "Alta complexidade",
-                "descricao": "Atendimento de alta complexidade.",
-                "icone": "local_hospital"
-            },
-            {
-                "categoria": "Diagnóstico e terapia",
-                "descricao": "Serviços de diagnose e terapia.",
-                "icone": "radiology"
-            },
-            {
-                "categoria": "Ambulatório de especialidades",
-                "descricao": "Atendimento ambulatorial eletivo em especialidades.",
-                "icone": "stethoscope"
-            },
-            {
-                "categoria": "Urgência",
-                "descricao": "Pronto atendimento para urgências.",
-                "icone": "ambulance"
-            },
-            {
-                "categoria": "Internação e apoio assistencial",
-                "descricao": "Internação e serviços de apoio assistencial, inclusive internação domiciliar.",
-                "icone": "bed"
-            }
-        ],
-        "latitude": -9.414036858414894,
-        "longitude": -40.51061649814937,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.google.com/maps/search/?api=1&query=-9.414036858414894%2C-40.51061649814937",
-        "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918404028155",
-        "fontes_adicionais": [
-            "https://www.ba.gov.br/saude/hospital/hospital-regional-de-juazeiro",
-            "https://mapcarta.com/pt/W174393838"
-        ],
-        "observacao": "Coordenadas já presentes na versão anterior e associadas ao ponto cartográfico do Hospital Regional; confirmar em campo antes de navegação de precisão. Coordenada publicada em fonte secundária baseada em cadastro CNES; validar visualmente antes de deslocamento.",
-        "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
-        "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
-    },
-    {
-        "nome": "Hospital SOTE - Serviço de Ortopedia e Traumatologia Especializada",
-        "categoria": "Hospital",
-        "municipio": "Juazeiro",
-        "bairro": "Alto da Maravilha",
-        "endereco": "Travessa Paulo Afonso, 1 - Alto da Maravilha, Juazeiro - BA",
-        "contato": "(74) 3613-8888",
-        "horario": "Plantão/urgência 24h informado em diretório; confirmar",
-        "cnes": "2423960",
-        "esfera_gestao": "Privada/contratada (confirmar modalidade SUS)",
-        "servicos": [
-            {
-                "categoria": "Ortopedia e traumatologia",
-                "descricao": "Hospital especializado; confirme atendimento SUS, encaminhamento e serviços disponíveis.",
-                "icone": "orthopedics"
-            }
-        ],
-        "latitude": -9.392917315899329,
-        "longitude": -40.50038304749476,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.openstreetmap.org/?mlat=-9.392917315899329&mlon=-40.50038304749476#map=18/-9.392917315899329/-40.50038304749476",
-        "fonte": "https://www.google.com/maps/search/?api=1&query=Hospital+SOTE+Juazeiro+BA",
-        "fontes_adicionais": [
-            "https://www.google.com/maps/search/?api=1&query=Hospital+SOTE+Juazeiro+BA"
-        ],
-        "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
-        "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
-        "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
-    },
-    {
-        "nome": "Pró-Matre de Juazeiro",
-        "categoria": "Hospital",
-        "municipio": "Juazeiro",
-        "bairro": "Centro",
-        "endereco": "Rua Doutor Pedro Borges Viana, 22 - Centro, Juazeiro - BA",
-        "contato": "(74) 3611-7225",
-        "horario": "Atendimento contínuo 24h (diretório local; confirmar com a unidade)",
-        "cnes": "2557509",
-        "esfera_gestao": "Privada/contratada (CNES; confirmar modalidade SUS)",
-        "servicos": [
-            {
-                "categoria": "Atendimento hospitalar",
-                "descricao": "Estabelecimento hospitalar cadastrado no CNES; confirme quais serviços são ofertados pelo SUS e mediante regulação.",
-                "icone": "local_hospital"
-            }
-        ],
-        "latitude": -9.411105625785563,
-        "longitude": -40.5047144018243,
-        "localizacao_confirmada": true,
-        "mapa": "https://www.openstreetmap.org/?mlat=-9.411105625785563&mlon=-40.5047144018243#map=18/-9.411105625785563/-40.5047144018243",
-        "fonte": "https://idoutor.com/hospital/ba/juazeiro/promatre-de-juazeiro-2557509",
-        "fontes_adicionais": [
-            "https://www.google.com/maps/search/?api=1&query=Promatre+Juazeiro+BA"
-        ],
-        "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
-        "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
-        "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
-    }
+  {
+    "nome": "USF Alto da Aliança",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Alto da Aliança",
+    "endereco": "Avenida Irmã Dulce, S/N - Alto da Aliança, Juazeiro - BA",
+    "contato": "Telefone: (74) 3612-766 | E-mail: ubs.altodaalianca@juazeiro.ba.gov.br",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "2770997",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.447412074152018,
+    "longitude": -40.49835031865748,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.4475285%2C-40.4983825",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/usf-alto-da-alianca-cnes-2770997/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenada conferida por referência do Google Maps; diferença aproximada de 13 m em relação ao marcador consultado."
+  },
+  {
+    "nome": "USF Antônio Guilhermino",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Antônio Guilhermino",
+    "endereco": "Av. dos Evangélicos, S/N - Antônio Guilhermino, Juazeiro - BA, CEP 48913-606",
+    "contato": "Não informado no CNES consultado",
+    "horario": "Segunda a sexta: 7h30 às 17h",
+    "cnes": "5460573",
+    "esfera_gestao": "Municipal",
+    "servicos": [],
+    "latitude": -9.4144951449,
+    "longitude": -40.5032658577,
+    "localizacao_confirmada": false,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405460573",
+    "fontes_adicionais": [
+      "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-antonio-guilhermino-5460573/",
+      "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-antonio-guilhermino-5460573"
+    ],
+    "observacao": "Coordenada de referência consultada no cadastro CNES; aguarda validação visual no mapa."
+  },
+  {
+    "nome": "USF CAIC",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Antônio Conselheiro",
+    "endereco": "Rua Armando de Jesus, S/N - Antônio Conselheiro, Juazeiro - BA, CEP 48916-797",
+    "contato": "(74) 3611-0254",
+    "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
+    "cnes": "2824981",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atendimento domiciliar",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "home"
+      },
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.441876833129008,
+    "longitude": -40.51368826759988,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402824981",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-caic-cnes-2824981/"
+    ],
+    "observacao": "Coordenada conferida por referência do Google Maps; diferença aproximada de 4 m em relação ao marcador consultado.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.441914%2C-40.5137004"
+  },
+  {
+    "nome": "USF CAJ",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Projeto CAJ",
+    "endereco": "Projeto CAJ, S/N - Juazeiro - BA",
+    "contato": "E-mail: ubs.caj@juazeiro.ba.gov.br",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "3493741",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": null,
+    "longitude": null,
+    "localizacao_confirmada": false,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.41397%2C-40.50297",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/usf-caj-cnes-3493741/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
+  },
+  {
+    "nome": "USF Campos",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Comunidade de Campos",
+    "endereco": "Sítio São José, Fazenda Campos, S/N - Comunidade de Campos, Juazeiro - BA, CEP 48920-899",
+    "contato": "Não informado no CNES consultado",
+    "horario": "Segunda a sexta: 7h30 às 17h",
+    "cnes": "5887038",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": null,
+    "longitude": null,
+    "localizacao_confirmada": false,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405887038",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-campos-cnes-5887038/"
+    ],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação."
+  },
+  {
+    "nome": "USF Centro de Saúde III (UBS Angari)",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Centro / Angari",
+    "endereco": "Av. Carmela Dutra, S/N - Centro, Juazeiro - BA, CEP 48903-530",
+    "contato": "(74) 3611-4600",
+    "horario": "Segunda a sexta: 7h30 às 17h (CNES)",
+    "cnes": "2510197",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviços de atenção básica registrados no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES; confirme os procedimentos disponíveis diretamente com a unidade.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.412316,
+    "longitude": -40.496875,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.412316%2C-40.496875",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402510197",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-centro-de-saude-iii-cnes-2510197/"
+    ],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
+    "fonte_coordenadas": "Google Maps; ponto conferido pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "USF CSU I (Alto do Alencar)",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Alto do Alencar",
+    "endereco": "Rua Pio XI, S/N - Alto do Alencar, Juazeiro - BA, CEP 48905-499",
+    "contato": "(74) 3611-6105",
+    "horario": "Segunda a sexta: 7h30 às 17h",
+    "cnes": "2770873",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço de atenção primária cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Posto de coleta de materiais biológicos",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "science"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.435835085776638,
+    "longitude": -40.493226348406054,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402770873",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-csu-i-cnes-2770873/"
+    ],
+    "observacao": "O CNES identifica a unidade como USF CSU I. O endereço Av. Américo Tanury informado no cadastro antigo não foi mantido porque diverge da ficha CNES. Coordenadas pendentes.",
+    "fonte_coordenadas": "Google Maps; coordenada escolhida pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.435835085776638%2C-40.493226348406054"
+  },
+  {
+    "nome": "USF Dom Thomaz",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Dom Thomaz",
+    "endereco": "Rodovia BA-210, S/N - Dom Thomaz, Juazeiro - BA, CEP 48905-679",
+    "contato": "Não informado no CNES consultado",
+    "horario": "Segunda a sexta: 7h30 às 17h",
+    "cnes": "5460530",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Posto de coleta de materiais biológicos",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "science"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.440891,
+    "longitude": -40.492858,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405460530",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-dom-thomaz-cnes-5460530/"
+    ],
+    "observacao": "Serviços cadastrais identificados no diretório baseado no CNES; coordenadas pendentes.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.440891%2C-40.492858"
+  },
+  {
+    "nome": "USF Jardim Primavera",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Jardim Primavera",
+    "endereco": "Avenida Mandacaru, S/N - Jardim Primavera, Juazeiro - BA, CEP 48908-524",
+    "contato": "(74) 3618-3016",
+    "horario": "Segunda a sexta: 7h30 às 12h e 13h30 às 17h (Prefeitura, jun. 2026)",
+    "cnes": "3734137",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.454853,
+    "longitude": -40.417567,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918403734137",
+    "fontes_adicionais": [
+      "https://www.juazeiro.ba.gov.br/ubs-do-jardim-primavera-em-juazeiro-passa-a-funcionar-em-horario-ampliado/",
+      "https://saudenopais.com/estabelecimento/ba/usf-jardim-primavera-cnes-3734137/"
+    ],
+    "observacao": "Coordenadas de diretório baseado no CNES. Há divergência entre endereço informado em fontes distintas; confirmar ponto exato com a unidade.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.454853%2C-40.417567"
+  },
+  {
+    "nome": "USF João Paulo II / José Carlos Tanury",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "João Paulo II",
+    "endereco": "Quadra 12, A-41 - João Paulo II, Juazeiro - BA, CEP 48914-112",
+    "contato": "(74) 3612-0491",
+    "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
+    "cnes": "2598019",
+    "esfera_gestao": "Municipal",
+    "servicos": [],
+    "latitude": -9.473466658432184,
+    "longitude": -40.498659118033714,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402598019",
+    "observacao": "Cadastro básico CNES. Coordenadas pendentes; confirmar se o cadastro corresponde à unidade pretendida.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto; sinal negativo da latitude normalizado",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.473466658432184%2C-40.498659118033714"
+  },
+  {
+    "nome": "USF Maniçoba I",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Maniçoba I",
+    "endereco": "Avenida dos Colonos, S/N - Maniçoba I, Juazeiro - BA",
+    "contato": "Telefone: (74) 3617-8350",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "2770636",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.323981,
+    "longitude": -40.295499,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.323981%2C-40.295499",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/usf-manicoba-i-cnes-2770636/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "USF Parque Residencial João Paulo II",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Parque Residencial",
+    "endereco": "Avenida das Árvores, S/N - Parque Residencial, Juazeiro - BA",
+    "contato": "Telefone: (74) 3613-0991",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "5331099",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.472363,
+    "longitude": -40.492485,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.472363%2C-40.492485",
+    "fonte": "https://idoutor.com/posto-de-saude/ba/juazeiro/usf-parque-residencial-joao-paulo-ii-5331099",
+    "fontes_adicionais": [],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "USF Residencial Dr. Humberto",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Residencial Dr. Humberto",
+    "endereco": "Rua B, 335 - Residencial Dr. Humberto, Juazeiro - BA",
+    "contato": "Não localizado em fonte consultada",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "4233972",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.421193892388516,
+    "longitude": -40.49195139404713,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.openstreetmap.org/?mlat=-9.421193892388516&mlon=-40.49195139404713#map=18/-9.421193892388516/-40.49195139404713",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/usf-residencial-dr-humberto-cnes-4233972/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
+    "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
+    "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
+  },
+  {
+    "nome": "USF Residencial Juazeiro",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Residencial Juazeiro / Itaberaba",
+    "endereco": "Rua Presidente Abraão Lincoln, S/N - Residencial Juazeiro, Juazeiro - BA",
+    "contato": "Não localizado em fonte consultada",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "0104256",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.450887126476225,
+    "longitude": -40.480695947493906,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.openstreetmap.org/?mlat=-9.450887126476225&mlon=-40.480695947493906#map=18/-9.450887126476225/-40.480695947493906",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/usf-residencial-juazeiro-cnes-0104256/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
+    "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
+    "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
+  },
+  {
+    "nome": "USF Residencial São Francisco",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Residencial São Francisco",
+    "endereco": "Rua das Laranjeiras, 10 - Residencial São Francisco, Juazeiro - BA",
+    "contato": "Não localizado em fonte consultada",
+    "horario": "Segunda a sexta, 7h30 às 17h (referência cadastral CNES)",
+    "cnes": "4729528",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Informação cadastral; confirme a oferta e o fluxo de atendimento diretamente com a unidade.",
+        "icone": "stethoscope"
+      }
+    ],
+    "latitude": -9.449750074940205,
+    "longitude": -40.521059876329986,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.4498665%2C-40.5210706",
+    "fonte": "https://saudenopais.com/estabelecimento/ba/ubs-residencial-sao-francisco-cnes-4729528/",
+    "fontes_adicionais": [],
+    "observacao": "Coordenada atualizada a partir de referências cartográficas próximas; substitui o ponto antigo que estava incorreto.",
+    "fonte_coordenadas": "https://saudenopais.com/estabelecimento/ba/ubs-residencial-sao-francisco-cnes-4729528/",
+    "observacao_coordenadas": "Coordenadas publicadas por diretório secundário baseado em cadastro CNES; marcador provisório, sujeito a conferência visual."
+  },
+  {
+    "nome": "USF Tabuleiro",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Tabuleiro",
+    "endereco": "Av. Nossa Senhora das Grotas, S/N - Tabuleiro, Juazeiro - BA, CEP 48906-075",
+    "contato": "(74) 3613-1083",
+    "horario": "Segunda a sexta: 7h30 às 22h (CNES; dois turnos)",
+    "cnes": "2598043",
+    "esfera_gestao": "Municipal",
+    "servicos": [],
+    "latitude": -9.432320587115267,
+    "longitude": -40.475848503418845,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918402598043",
+    "observacao": "Cadastro básico CNES. Serviços específicos e coordenadas ainda precisam de confirmação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.432320587115267%2C-40.475848503418845"
+  },
+  {
+    "nome": "USF Vila Jacaré",
+    "categoria": "UBS",
+    "municipio": "Juazeiro",
+    "bairro": "Coreia",
+    "endereco": "Rua 1, S/N - Coreia, Juazeiro - BA, CEP 48904-131",
+    "contato": "Não informado no CNES consultado",
+    "horario": "Segunda a sexta: 7h30 às 17h",
+    "cnes": "5881617",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Atenção Primária",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Pré-natal e parto",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "pregnant_woman"
+      },
+      {
+        "categoria": "Atenção ao paciente com tuberculose",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "add"
+      },
+      {
+        "categoria": "Telessaúde",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "computer"
+      }
+    ],
+    "latitude": -9.416076,
+    "longitude": -40.496234,
+    "localizacao_confirmada": true,
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918405881617",
+    "fontes_adicionais": [
+      "https://saudenopais.com/estabelecimento/ba/usf-vila-jacare-cnes-5881617/"
+    ],
+    "observacao": "Coordenada encontrada em diretório, mas rejeitada por inconsistência espacial: repetia praticamente o mesmo ponto de outras unidades em bairros distintos. Não será exibida no mapa até validação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.416076%2C-40.496234"
+  },
+  {
+    "nome": "Unidade de Atendimento Pediátrico 24h (UPED)",
+    "categoria": "UPA",
+    "municipio": "Juazeiro",
+    "bairro": "Jardim Flórida",
+    "endereco": "Rua Paulo B. de Carvalho, 2-210 - Jardim Flórida, Juazeiro - BA",
+    "contato": "(74) 99929-3838",
+    "horario": "Atendimento contínuo 24h (diretório local; confirmar com a unidade)",
+    "cnes": "0106860",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Urgência pediátrica",
+        "descricao": "Atendimento pediátrico de urgência e emergência; confirme fluxo e faixa etária diretamente com a unidade.",
+        "icone": "child_care"
+      }
+    ],
+    "latitude": -9.429349,
+    "longitude": -40.508118,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.429349%2C-40.508118",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Ind_Especialidades_Listar.asp?VAmbu=&VAmbuSUS=&VClassificacao=00&VComp=00&VEstado=29&VHosp=&VHospSus=&VListar=1&VMun=291840&VServico=00&VTerc=00&VTipo=108",
+    "fontes_adicionais": [
+      "https://www.google.com/maps/search/?api=1&query=Unidade+de+Atendimento+Pediatrico+Juazeiro+BA"
+    ],
+    "observacao": "Cadastro identificado, mas não foi possível confirmar coordenadas confiáveis nesta pesquisa; não será exibido como marcador até validação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "UPA Dr. João Oliveira",
+    "categoria": "UPA",
+    "municipio": "Juazeiro",
+    "bairro": "Castelo Branco",
+    "endereco": "Rodovia Lomanto Júnior, S/N, KM 4 - Castelo Branco, Juazeiro - BA, CEP 48906-570",
+    "contato": "(74) 3613-4288 | diretoria.upa@juazeiro.ba.gov.br",
+    "horario": "Atendimento contínuo (CNES)",
+    "cnes": "7094647",
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Urgência e emergência",
+        "descricao": "Atendimento de casos de urgência e emergência.",
+        "icone": "ambulance"
+      },
+      {
+        "categoria": "Diagnóstico por imagem",
+        "descricao": "Serviços de imagem cadastrados, incluindo radiologia e tomografia; confirme a oferta atual antes de se deslocar.",
+        "icone": "radiology"
+      },
+      {
+        "categoria": "Exames laboratoriais",
+        "descricao": "Serviço de laboratório clínico cadastrado no CNES.",
+        "icone": "science"
+      },
+      {
+        "categoria": "Estabilização de pacientes",
+        "descricao": "Estrutura para atendimento e estabilização de pacientes graves.",
+        "icone": "local_hospital"
+      },
+      {
+        "categoria": "Saúde do trabalhador",
+        "descricao": "Serviço cadastrado no CNES.",
+        "icone": "health_and_safety"
+      }
+    ],
+    "latitude": -9.437677,
+    "longitude": -40.497006,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.437677%2C-40.497006",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918407094647",
+    "fontes_adicionais": [
+      "https://cnes2.datasus.gov.br/Mod_Ambulatorial.asp?VCo_Unidade=2918407094647"
+    ],
+    "observacao": "Coordenadas ainda não confirmadas para marcador no mapa.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "Hospital Materno Infantil de Juazeiro",
+    "categoria": "Hospital",
+    "municipio": "Juazeiro",
+    "bairro": "Mussambê",
+    "endereco": "Avenida Raul Alves, 1000 - Mussambê, Juazeiro - BA",
+    "contato": "(74) 3611-7732",
+    "horario": "Atendimento hospitalar 24h (diretório local; confirmar)",
+    "cnes": null,
+    "esfera_gestao": "Municipal",
+    "servicos": [
+      {
+        "categoria": "Maternidade e atenção materno-infantil",
+        "descricao": "Serviços hospitalares materno-infantis; confirmar serviços, portas de entrada e regulação diretamente com a unidade.",
+        "icone": "breastfeeding"
+      }
+    ],
+    "latitude": -9.41767,
+    "longitude": -40.507347,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.41767%2C-40.507347",
+    "fonte": "https://www.google.com/maps/search/?api=1&query=Hospital+Materno+Infantil+Juazeiro+BA",
+    "fontes_adicionais": [
+      "https://www.google.com/maps/search/?api=1&query=Hospital+Materno+Infantil+Juazeiro+BA"
+    ],
+    "observacao": "Cadastro identificado, mas não foi possível confirmar coordenadas confiáveis nesta pesquisa; não será exibido como marcador até validação.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "Hospital Regional de Juazeiro (HRJ)",
+    "categoria": "Hospital",
+    "municipio": "Juazeiro",
+    "bairro": "Santo Antônio",
+    "endereco": "Travessa do Hospital, S/N - Santo Antônio, Juazeiro - BA, CEP 48903-060",
+    "contato": "(74) 2102-2850",
+    "horario": "Atendimento contínuo (CNES)",
+    "cnes": "4028155",
+    "esfera_gestao": "Estadual",
+    "servicos": [
+      {
+        "categoria": "Alta complexidade",
+        "descricao": "Atendimento de alta complexidade.",
+        "icone": "local_hospital"
+      },
+      {
+        "categoria": "Diagnóstico e terapia",
+        "descricao": "Serviços de diagnose e terapia.",
+        "icone": "radiology"
+      },
+      {
+        "categoria": "Ambulatório de especialidades",
+        "descricao": "Atendimento ambulatorial eletivo em especialidades.",
+        "icone": "stethoscope"
+      },
+      {
+        "categoria": "Urgência",
+        "descricao": "Pronto atendimento para urgências.",
+        "icone": "ambulance"
+      },
+      {
+        "categoria": "Internação e apoio assistencial",
+        "descricao": "Internação e serviços de apoio assistencial, inclusive internação domiciliar.",
+        "icone": "bed"
+      }
+    ],
+    "latitude": -9.414036858414894,
+    "longitude": -40.51061649814937,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-9.414036858414894%2C-40.51061649814937",
+    "fonte": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2918404028155",
+    "fontes_adicionais": [
+      "https://www.ba.gov.br/saude/hospital/hospital-regional-de-juazeiro",
+      "https://mapcarta.com/pt/W174393838"
+    ],
+    "observacao": "Coordenadas já presentes na versão anterior e associadas ao ponto cartográfico do Hospital Regional; confirmar em campo antes de navegação de precisão. Coordenada publicada em fonte secundária baseada em cadastro CNES; validar visualmente antes de deslocamento.",
+    "fonte_coordenadas": "Levantamento de coordenadas realizado pela equipe do projeto",
+    "observacao_coordenadas": "Coordenada adotada para a versão final do projeto conforme decisão da equipe. A confirmação representa a aceitação do ponto no levantamento do projeto, não uma auditoria geodésica independente."
+  },
+  {
+    "nome": "Hospital SOTE - Serviço de Ortopedia e Traumatologia Especializada",
+    "categoria": "Hospital",
+    "municipio": "Juazeiro",
+    "bairro": "Alto da Maravilha",
+    "endereco": "Avenida Paulo Afonso, 01 - Alto da Maravilha, Juazeiro - BA",
+    "contato": "(74) 3613-8888",
+    "horario": "Plantão/urgência 24h informado em diretório; confirmar",
+    "cnes": "2423960",
+    "esfera_gestao": "Privada/contratada (confirmar modalidade SUS)",
+    "servicos": [
+      {
+        "categoria": "Ortopedia e traumatologia",
+        "descricao": "Hospital especializado; confirme atendimento SUS, encaminhamento e serviços disponíveis.",
+        "icone": "orthopedics"
+      }
+    ],
+    "latitude": -9.392917315899329,
+    "longitude": -40.50038304749476,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.openstreetmap.org/?mlat=-9.392917315899329&mlon=-40.50038304749476#map=18/-9.392917315899329/-40.50038304749476",
+    "fonte": "https://www.google.com/maps/search/?api=1&query=Hospital+SOTE+Juazeiro+BA",
+    "fontes_adicionais": [
+      "https://www.google.com/maps/search/?api=1&query=Hospital+SOTE+Juazeiro+BA"
+    ],
+    "observacao": "Endereço revisado conforme referência cadastral; os pontos de ônibus próximos são estimativas do OpenStreetMap e devem ser confirmados localmente.",
+    "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
+    "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
+  },
+  {
+    "nome": "Pró-Matre de Juazeiro",
+    "categoria": "Hospital",
+    "municipio": "Juazeiro",
+    "bairro": "Centro",
+    "endereco": "Rua Doutor Pedro Borges Viana, 22 - Centro, Juazeiro - BA",
+    "contato": "(74) 3611-7225",
+    "horario": "Atendimento contínuo 24h (diretório local; confirmar com a unidade)",
+    "cnes": "2557509",
+    "esfera_gestao": "Privada/contratada (CNES; confirmar modalidade SUS)",
+    "servicos": [
+      {
+        "categoria": "Atendimento hospitalar",
+        "descricao": "Estabelecimento hospitalar cadastrado no CNES; confirme quais serviços são ofertados pelo SUS e mediante regulação.",
+        "icone": "local_hospital"
+      }
+    ],
+    "latitude": -9.411105625785563,
+    "longitude": -40.5047144018243,
+    "localizacao_confirmada": true,
+    "mapa": "https://www.openstreetmap.org/?mlat=-9.411105625785563&mlon=-40.5047144018243#map=18/-9.411105625785563/-40.5047144018243",
+    "fonte": "https://idoutor.com/hospital/ba/juazeiro/promatre-de-juazeiro-2557509",
+    "fontes_adicionais": [
+      "https://www.google.com/maps/search/?api=1&query=Promatre+Juazeiro+BA"
+    ],
+    "observacao": "Coordenadas atualizadas e conferidas pela equipe do projeto; recomenda-se conferir o ponto no mapa antes de utilizar para deslocamento.",
+    "fonte_coordenadas": "Coordenadas informadas pela equipe do projeto Saúde em Foco.",
+    "observacao_coordenadas": "Coordenadas atualizadas a partir da localização identificada pela equipe do projeto."
+  }
 ]

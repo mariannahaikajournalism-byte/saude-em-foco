@@ -1,77 +1,81 @@
-🏥 Saúde em Foco
+Saúde em Foco — Juazeiro (BA)
 
-Guia Digital de Serviços de Saúde de Juazeiro – BA
+Guia digital acadêmico para consulta de informações sobre estabelecimentos públicos de saúde de Juazeiro, Bahia.
 
-O Saúde em Foco é uma aplicação web desenvolvida com o objetivo de facilitar o acesso da população a informações sobre unidades públicas de saúde do município de Juazeiro, Bahia.
+Objetivo
 
-A plataforma reúne informações sobre estabelecimentos de saúde em um ambiente digital de consulta, permitindo que os usuários localizem unidades, conheçam os serviços oferecidos e tenham acesso a informações úteis sobre sua localização e funcionamento.
+Organizar em um só ambiente parte das informações públicas sobre unidades de saúde, facilitando a busca por nome, bairro, endereço e categoria, além da consulta cartográfica e de referências de mobilidade. O projeto é acadêmico e não substitui canais oficiais do SUS nem confirma disponibilidade de atendimento.
 
-🎯 Objetivo
+Funcionalidades
 
-Contribuir para a democratização do acesso à informação em saúde por meio de uma ferramenta digital simples e acessível, aproximando a população dos serviços públicos disponíveis no município.
+- Busca e filtros por categoria (UBS, UPA e Hospital).
+- Cadastro local em `unidades.json` e perguntas frequentes em `faq.json`.
+- Mapa interativo com Leaflet e OpenStreetMap, com indicação do funcionamento estimado nos marcadores.
+- Consulta de pontos de ônibus próximos por meio da Overpass API, limitada à área administrativa de Juazeiro.
+- Estimativas de rotas e geocodificação com serviços HeiGIT/OpenRouteService e Pelias, conforme configuração.
+- Formulário separado para avaliar a experiência com a unidade de saúde e com a plataforma, com encaminhamento via Google Apps Script para Google Sheets.
 
-✨ Funcionalidades
+Tecnologias
 
-- Pesquisa de unidades: busca por nome, bairro ou endereço.
-- Filtros por categoria: identificação de hospitais, Unidades de Pronto Atendimento (UPAs) e Unidades Básicas de Saúde (UBSs).
-- Informações das unidades: consulta de endereços, contatos, horários de funcionamento e serviços informados.
-- Georreferenciamento: visualização da localização de unidades em um mapa interativo.
-- Mobilidade urbana: consulta de informações de referência sobre linhas de transporte público.
-- Fontes de informação: acesso às referências utilizadas na organização dos dados.
+Python, Streamlit, HTML, CSS, JavaScript, JSON, Leaflet, OpenStreetMap, Overpass API, HeiGIT/OpenRouteService, Pelias, Google Apps Script e Google Sheets.
 
-🗺️ Mapa e georreferenciamento
+Estrutura
 
-A aplicação utiliza recursos de georreferenciamento para representar espacialmente as unidades de saúde cadastradas.
+```text
+saude-em-foco/
+├── app.py
+├── unidades.json
+├── faq.json
+├── interface.css
+├── requirements.txt
+├── README.md
+└── static/
+    └── hero.webp
+```
 
-O mapa permite visualizar a distribuição dos estabelecimentos no território de Juazeiro, contribuindo para a compreensão da localização dos serviços e sua relação com o espaço urbano.
+Executar localmente
 
-🚌 Cibermobilidade
+1. Instale Python compatível com as dependências e crie um ambiente virtual.
+2. Instale as dependências:
 
-O projeto também incorpora informações de transporte público como recurso de apoio à mobilidade urbana.
-
-Essa funcionalidade busca aproximar a localização dos serviços de saúde das possibilidades de deslocamento da população. As informações de transporte são referências de consulta e não representam rastreamento de veículos ou atualização em tempo real.
-
-🛠️ Tecnologias utilizadas
-
-- Python: linguagem de programação utilizada no desenvolvimento.
-- Streamlit: framework para construção da aplicação web.
-- JSON: formato utilizado para organização e armazenamento dos dados.
-- OpenStreetMap: base cartográfica utilizada na visualização geográfica.
-- Leaflet: biblioteca para construção do mapa interativo.
-
-▶️ Como executar o projeto
-
-1. Instale o Python em seu computador.
-2. Clone este repositório ou faça o download dos arquivos.
-3. Abra a pasta do projeto no terminal.
-4. Instale as dependências:
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
-5. Execute a aplicação:
-   ```
+
+3. Inicie a aplicação:
+
+   ```bash
    streamlit run app.py
    ```
 
-📍 Abrangência
+Configurações privadas
 
-O projeto tem como recorte territorial o município de Juazeiro, Bahia.
+Chaves e tokens devem ser configurados localmente em `.streamlit/secrets.toml` ou nos Secrets do Streamlit Community Cloud. Não publique esse arquivo nem inclua credenciais no GitHub. A integração de avaliação utiliza a seção `feedback`; recursos de roteamento podem depender da chave configurada para o serviço correspondente.
 
-As informações disponibilizadas são organizadas a partir dos dados reunidos para o desenvolvimento da aplicação. A completude e a atualização dos registros dependem das fontes consultadas.
+Dados, georreferenciamento e fontes
 
-🎓 Sobre o projeto
+Os estabelecimentos e seus atributos são mantidos em `unidades.json`. O cadastro contém referências públicas e identificadores CNES quando disponíveis. A cartografia e os pontos de ônibus são obtidos do OpenStreetMap; a consulta de elementos de transporte utiliza a Overpass API e restringe os resultados à área administrativa identificada como Juazeiro.
 
-O Saúde em Foco foi desenvolvido como atividade acadêmica do curso de Jornalismo em Multimeios, da Universidade do Estado da Bahia (UNEB), no componente curricular Comunicação e Novas Tecnologias.
+O estado de validação de cada coordenada é registrado individualmente no JSON. Coordenadas provisórias não devem ser apresentadas como validadas. A USF Antônio Guilhermino permanece com coordenada de referência do CNES aguardando validação visual. USF CAJ e USF Campos permanecem sem coordenadas cadastradas.
 
-Professor orientador: Cecílio Bastos.
+As distâncias entre uma unidade e um ponto de ônibus são aproximações em linha reta, não distâncias de caminhada. Uma parada próxima não comprova a linha de ônibus que passa por ela. Horários exibidos são estimativas interpretadas a partir do cadastro, não dados em tempo real. Informações podem mudar e devem ser confirmadas diretamente com as unidades e operadores.
 
-Equipe
+Avaliações e planilha
 
-- Ana Julia Alves de Lima Silva
-- Emilly Kauany M. Silva
-- Marianna Haika da Silva Oliveira
-- Rebeca Fonseca da Silva
-- Sophia Santos Araujo
-- Valentina Santana Queiroz
+O formulário envia os campos legados para manter compatibilidade básica com a integração existente e também envia novos campos separados (`unidade_saude`, `atendimento_unidade`, `acesso_unidade`, `estrutura_unidade`, `sugestao_unidade`, `experiencia_plataforma` e `sugestao_plataforma`). Para que todos os novos campos sejam gravados, o Google Apps Script e a planilha vinculada precisam ser atualizados para receber essas colunas. O código do Apps Script não faz parte deste repositório e não foi alterado aqui.
 
-Juazeiro – Bahia | 2026
+Limitações
+
+- O catálogo é uma seleção de estabelecimentos, não necessariamente a rede municipal completa.
+- A qualidade e atualidade dos dados dependem das fontes consultadas.
+- A cobertura do OpenStreetMap pode ser incompleta.
+- Rotas e tempos são estimativas e dependem da disponibilidade dos serviços externos.
+- O projeto não realiza agendamento, regulação, diagnóstico ou confirmação de vagas.
+
+Aplicação publicada
+
+[Saúde em Foco — Streamlit](https://saude-em-foco-3pgmcospnjubktp5eshysd.streamlit.app/)
+
+Créditos
+
+Projeto acadêmico do curso de Jornalismo em Multimeios — Universidade do Estado da Bahia (UNEB), Juazeiro (BA), 2026.

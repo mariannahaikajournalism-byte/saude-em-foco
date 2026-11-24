@@ -253,10 +253,6 @@ def distancia_metros(lat1, lon1, lat2, lon2):
     return 2 * raio_terra * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
-<<<<<<< HEAD
-@st.cache_data(ttl=3600, show_spinner=False)
-def consultar_pontos_onibus(unidades_consulta, raio=500):
-=======
 def categorizar_faixa_distancia(distancia):
     """Classifica cada parada em uma única faixa de proximidade."""
     if distancia <= 300:
@@ -270,7 +266,6 @@ def categorizar_faixa_distancia(distancia):
 
 @st.cache_data(ttl=3600, show_spinner=False)
 def consultar_pontos_onibus(unidades_consulta, raio=1000):
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
     """Consulta pontos de ônibus no OpenStreetMap via Overpass API.
 
     Recebe somente unidades cujas coordenadas foram marcadas como confirmadas
@@ -320,11 +315,7 @@ def consultar_pontos_onibus(unidades_consulta, raio=1000):
             "id": identificador,
             "latitude": float(lat),
             "longitude": float(lon),
-<<<<<<< HEAD
-            "nome": tags.get("name") or tags.get("ref") or "Ponto de ônibus sem nome no cadastro",
-=======
             "nome": tags.get("name") or tags.get("ref") or "Parada sem identificação nominal",
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
             "operador": tags.get("operator", ""),
             "tipo": tags.get("highway") or tags.get("public_transport") or "parada",
         }
@@ -342,15 +333,10 @@ def consultar_pontos_onibus(unidades_consulta, raio=1000):
             distancia, unidade_mais_proxima = min(proximidade, key=lambda item: item[0])
             ponto["unidade_proxima"] = unidade_mais_proxima
             ponto["distancia_metros"] = round(distancia)
-<<<<<<< HEAD
-            ponto["osm_url"] = f"https://www.openstreetmap.org/{ponto['id'].replace(':', '/') }"
-            pontos_atribuidos.append(ponto)
-=======
             ponto["faixa_distancia"] = categorizar_faixa_distancia(ponto["distancia_metros"])
             ponto["osm_url"] = f"https://www.openstreetmap.org/{ponto['id'].replace(':', '/') }"
             if ponto["faixa_distancia"]:
                 pontos_atribuidos.append(ponto)
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
     pontos_atribuidos.sort(key=lambda item: (item["unidade_proxima"], item["distancia_metros"]))
     return {"pontos": pontos_atribuidos, "erro": None}
@@ -1231,11 +1217,7 @@ elif pagina == "Mobilidade":
                 f'<h2>{icone_material("schedule")}Consulta de itinerários</h2>'
                 '<p>As linhas e os horários podem sofrer alterações. A consulta atualizada deve ser feita diretamente na plataforma de transporte.</p>'
                 f'<h2>{icone_material("location_on")}Pontos de ônibus próximos às unidades</h2>'
-<<<<<<< HEAD
-                '<p>O guia consulta pontos de parada cadastrados no OpenStreetMap em um raio de até 500 metros das unidades com coordenadas confirmadas pela equipe.</p>'
-=======
                 '<p>O guia consulta pontos de parada cadastrados no OpenStreetMap em um raio de até 1 km das unidades com coordenadas confirmadas pela equipe, organizando os resultados por faixas de distância.</p>'
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
                 '<p>A proximidade de um ponto não comprova que uma linha específica atende à unidade. A associação entre ponto e linha depende de confirmação do itinerário.</p>'
                 '</aside>'
             )
@@ -1249,11 +1231,7 @@ elif pagina == "Mobilidade":
         st.info("Ainda não há unidades com coordenadas confirmadas disponíveis para esta consulta.")
     else:
         with st.spinner("Consultando pontos de ônibus mapeados em Juazeiro..."):
-<<<<<<< HEAD
-            resultado_mobilidade = consultar_pontos_onibus(tuple(unidades_com_coordenadas_confirmadas), 500)
-=======
             resultado_mobilidade = consultar_pontos_onibus(tuple(unidades_com_coordenadas_confirmadas), 1000)
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
         if resultado_mobilidade["erro"]:
             st.warning(
@@ -1269,31 +1247,6 @@ elif pagina == "Mobilidade":
             st.html(
                 '<div class="sf-metrics">'
                 f'<div class="sf-metric">{icone_material("domain")}<div><strong>{len(unidades_com_coordenadas_confirmadas)}</strong><span>Unidades analisadas</span></div></div>'
-<<<<<<< HEAD
-                f'<div class="sf-metric">{icone_material("directions_bus")}<div><strong>{len(pontos)}</strong><span>Pontos encontrados</span></div></div>'
-                f'<div class="sf-metric">{icone_material("location_on")}<div><strong>{len(unidades_com_pontos)}</strong><span>Unidades com ponto próximo</span></div></div>'
-                '</div>'
-            )
-            if not pontos:
-                st.info("A consulta não encontrou pontos de ônibus mapeados no raio de 500 metros das unidades analisadas. Isso não significa necessariamente ausência de transporte; o mapa colaborativo pode estar incompleto.")
-            else:
-                for nome_unidade, _, _ in unidades_com_coordenadas_confirmadas:
-                    pontos_unidade = unidades_com_pontos.get(nome_unidade, [])
-                    with st.expander(f"{nome_unidade} · {len(pontos_unidade)} ponto(s) encontrado(s)", expanded=bool(pontos_unidade)):
-                        if not pontos_unidade:
-                            st.write("Nenhum ponto mapeado foi encontrado no raio de 500 metros desta unidade.")
-                        for ponto in pontos_unidade:
-                            distancia = ponto["distancia_metros"]
-                            distancia_texto = f"{distancia} m" if distancia < 1000 else f"{distancia / 1000:.1f} km"
-                            st.markdown(
-                                f"- **{html.escape(ponto['nome'])}** — aproximadamente {distancia_texto} "
-                                f"([ver no OpenStreetMap]({ponto['osm_url']}))"
-                            )
-                            if ponto.get("operador"):
-                                st.caption(f"Operador informado no mapa: {ponto['operador']}")
-
-            st.caption("Fonte: OpenStreetMap contributors, consultado via Overpass API. Os dados são colaborativos, podem estar incompletos ou desatualizados e não substituem a confirmação com a operadora do transporte.")
-=======
                 f'<div class="sf-metric">{icone_material("directions_bus")}<div><strong>{len(pontos)}</strong><span>Paradas localizadas</span></div></div>'
                 f'<div class="sf-metric">{icone_material("location_on")}<div><strong>{len(unidades_com_pontos)}</strong><span>Unidades com parada próxima</span></div></div>'
                 '</div>'
@@ -1340,7 +1293,6 @@ elif pagina == "Mobilidade":
                                     st.caption(f"Operador informado no mapa: {ponto['operador']}")
 
             st.caption("Fonte: OpenStreetMap contributors, consultado via Overpass API. Os dados são colaborativos, podem estar incompletos ou desatualizados e não substituem a confirmação com a operadora do transporte. As distâncias são estimativas em linha reta, não trajetos a pé.")
->>>>>>> c23e0ef (Atualiza Saúde em Foco e configura ambiente Python)
 
 elif pagina == "Sobre o projeto":
     with st.container(key="sf_page_intro"):
